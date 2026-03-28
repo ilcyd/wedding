@@ -18,12 +18,8 @@
     }, 1100); // wait for 1s transition to finish
   }
 
-  // Auto-open after 2.2 s
-  const autoTimer = setTimeout(openScroll, 2200);
-
   // Or immediately on click/tap
   intro.addEventListener('click', function () {
-    clearTimeout(autoTimer);
     openScroll();
   }, { once: true });
 }());
