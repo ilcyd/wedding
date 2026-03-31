@@ -12,13 +12,14 @@
 
   function openScroll() {
     intro.classList.add('si-open');
+
     setTimeout(function () {
       intro.remove();
       document.body.style.overflow = '';
-    }, 1100); // wait for 1s transition to finish
+    }, 1500);
   }
 
-  // Or immediately on click/tap
+  // Click/tap to open
   intro.addEventListener('click', function () {
     openScroll();
   }, { once: true });
@@ -100,14 +101,12 @@
 // ─── Scroll Reveal ───────────────────────────────────────────────────────────
 (function initReveal() {
   const targets = [
-    '#countdown-section .section-label',
-    '#countdown-section .section-title',
-    '#countdown-section .divider',
+    '#countdown-section .countdown-heading',
     '#countdown-section .countdown',
     '#story .section-label',
     '#story .section-title',
     '#story .divider',
-    '.story-card',
+    '.timeline-item',
     '#details .section-label',
     '#details .section-title',
     '#details .divider',
@@ -117,9 +116,9 @@
     '#gallery .section-title',
     '#gallery .divider',
     '.gallery-item',
-    '#rsvp .section-label',
-    '#rsvp .section-title',
-    '#rsvp .divider',
+    '.rsvp-form-side .section-label',
+    '.rsvp-form-side .section-title',
+    '.rsvp-form-side .divider',
     '#rsvp-form',
   ];
 

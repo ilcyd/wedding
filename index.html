@@ -15,92 +15,126 @@
   <body>
     <!-- ========= SCROLL INTRO ========= -->
     <div id="scroll-intro" aria-hidden="true" title="Click to skip">
-      <div class="si-panel si-top"></div>
+      <div class="si-panel si-top">
+        <div class="si-endcap si-endcap-left"></div>
+        <div class="si-endcap si-endcap-right"></div>
+      </div>
       <div class="si-content">
         <div class="si-inner">
+          <div class="si-seal">&#10048;</div>
           <p class="si-tag">You Are Invited</p>
           <h2 class="si-names">Irneil <span>&amp;</span> Summer</h2>
           <p class="si-date">Saturday · May 9, 2026</p>
           <p class="si-skip">tap to open</p>
         </div>
       </div>
-      <div class="si-panel si-bottom"></div>
+      <div class="si-panel si-bottom">
+        <div class="si-endcap si-endcap-left"></div>
+        <div class="si-endcap si-endcap-right"></div>
+      </div>
     </div>
 
-    <!-- ========= HERO ========= -->
+    <!-- ========= STICKY NAV ========= -->
+    <nav id="main-nav">
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#story">Story</a></li>
+        <li><a href="#details">Details</a></li>
+        <li><a href="#entourage">Entourage</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#rsvp">RSVP</a></li>
+      </ul>
+    </nav>
+
+    <!-- ========= HERO (split layout) ========= -->
     <section id="hero">
-      <div class="hero-overlay"></div>
       <div class="petals-container" id="petals"></div>
-      <div class="hero-content">
-        <p class="hero-label">Together with their families</p>
-        <h1 class="couple-names">Irneil <span>&amp;</span> Summer</h1>
-        <p class="hero-sub">invite you to celebrate their wedding</p>
-        <div class="divider"><span>✦</span></div>
-        <p class="wedding-date">Saturday, the Ninth of May</p>
-        <p class="wedding-year">Two Thousand and Twenty-Six</p>
-        <a href="#details" class="btn-outline">View Details</a>
+      <div class="hero-split">
+        <div class="hero-text">
+          <p class="hero-label">Together with their families</p>
+          <h1 class="couple-names">Irneil <span>&amp;</span> Summer</h1>
+          <p class="hero-sub">invite you to celebrate their wedding</p>
+          <div class="divider"><span>✦</span></div>
+          <p class="wedding-date">Saturday, the Ninth of May</p>
+          <p class="wedding-year">Two Thousand and Twenty-Six</p>
+          <a href="#details" class="btn-outline">View Details</a>
+        </div>
+        <div class="hero-photo">
+          <div class="hero-photo-frame"></div>
+        </div>
       </div>
-      <div class="scroll-hint">&#x2193; Scroll</div>
     </section>
 
-    <!-- ========= COUNTDOWN ========= -->
+    <!-- ========= COUNTDOWN (ribbon bar) ========= -->
     <section id="countdown-section">
-      <p class="section-label">The Big Day Is</p>
-      <h2 class="section-title">Almost Here</h2>
-      <div class="divider"><span>✦</span></div>
-      <div class="countdown" id="countdown">
-        <div class="unit">
-          <span class="count" id="days">00</span>
-          <span class="label">Days</span>
-        </div>
-        <div class="unit">
-          <span class="count" id="hours">00</span>
-          <span class="label">Hours</span>
-        </div>
-        <div class="unit">
-          <span class="count" id="minutes">00</span>
-          <span class="label">Minutes</span>
-        </div>
-        <div class="unit">
-          <span class="count" id="seconds">00</span>
-          <span class="label">Seconds</span>
+      <div class="countdown-inner">
+        <p class="countdown-heading">Counting Down To Our Day</p>
+        <div class="countdown" id="countdown">
+          <div class="unit">
+            <span class="count" id="days">00</span>
+            <span class="label">Days</span>
+          </div>
+          <div class="unit-sep">:</div>
+          <div class="unit">
+            <span class="count" id="hours">00</span>
+            <span class="label">Hours</span>
+          </div>
+          <div class="unit-sep">:</div>
+          <div class="unit">
+            <span class="count" id="minutes">00</span>
+            <span class="label">Minutes</span>
+          </div>
+          <div class="unit-sep">:</div>
+          <div class="unit">
+            <span class="count" id="seconds">00</span>
+            <span class="label">Seconds</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ========= OUR STORY ========= -->
+    <!-- ========= OUR STORY (vertical timeline) ========= -->
     <section id="story">
       <div class="section-inner">
         <p class="section-label">How It All Began</p>
         <h2 class="section-title">Our Story</h2>
         <div class="divider"><span>✦</span></div>
-        <div class="story-grid">
-          <div class="story-card">
-            <div class="story-icon">&#9825;</div>
-            <h3>First Meeting</h3>
-            <p class="story-date">March 2021</p>
-            <p>
-              We met at a mutual friend's gathering, laughed all evening, and
-              knew something special had just started.
-            </p>
+        <div class="timeline">
+          <div class="timeline-item tl-left">
+            <div class="tl-dot"></div>
+            <div class="story-card">
+              <div class="story-icon">&#9825;</div>
+              <h3>First Meeting</h3>
+              <p class="story-date">March 2021</p>
+              <p>
+                We met at a mutual friend's gathering, laughed all evening, and
+                knew something special had just started.
+              </p>
+            </div>
           </div>
-          <div class="story-card">
-            <div class="story-icon">&#9825;</div>
-            <h3>First Date</h3>
-            <p class="story-date">April 2021</p>
-            <p>
-              A sunset walk along the bay, coffee that went cold because the
-              conversation was too good to stop.
-            </p>
+          <div class="timeline-item tl-right">
+            <div class="tl-dot"></div>
+            <div class="story-card">
+              <div class="story-icon">&#9825;</div>
+              <h3>First Date</h3>
+              <p class="story-date">April 2021</p>
+              <p>
+                A sunset walk along the bay, coffee that went cold because the
+                conversation was too good to stop.
+              </p>
+            </div>
           </div>
-          <div class="story-card">
-            <div class="story-icon">&#9825;</div>
-            <h3>The Proposal</h3>
-            <p class="story-date">December 2025</p>
-            <p>
-              Under a sky full of stars, with family nearby, he got down on one
-              knee — and she said yes.
-            </p>
+          <div class="timeline-item tl-left">
+            <div class="tl-dot"></div>
+            <div class="story-card">
+              <div class="story-icon">&#9825;</div>
+              <h3>The Proposal</h3>
+              <p class="story-date">December 2025</p>
+              <p>
+                Under a sky full of stars, with family nearby, he got down on
+                one knee — and she said yes.
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -129,11 +163,13 @@
           </div>
 
           <div class="event-divider">
+            <div class="event-divider-line"></div>
             <span class="event-amp">&amp;</span>
+            <div class="event-divider-line"></div>
           </div>
 
           <div class="event-card">
-            <div class="event-icon">&#127891;</div>
+            <div class="event-icon">&#127862;</div>
             <h3>Reception</h3>
             <p class="event-time">6:00 PM</p>
             <p class="event-venue">The Grand Ballroom</p>
@@ -157,19 +193,132 @@
       </div>
     </section>
 
-    <!-- ========= GALLERY ========= -->
+    <!-- ========= ENTOURAGE ========= -->
+    <section id="entourage">
+      <div class="section-inner">
+        <p class="section-label">The Wedding Party</p>
+        <h2 class="section-title">Entourage</h2>
+        <div class="divider"><span>✦</span></div>
+
+        <!-- Principal Sponsors -->
+        <div class="ent-frame ent-principal">
+          <div class="ent-ribbon"><span>Principal Sponsors</span></div>
+          <div class="ent-two-col">
+            <div class="ent-col">
+              <p class="ent-side-label">His Side</p>
+              <p class="ent-name">Mr. Juan Dela Cruz</p>
+              <p class="ent-name">Mr. Roberto Santos</p>
+              <p class="ent-name">Mr. Antonio Reyes</p>
+              <p class="ent-name">Mr. Carlos Garcia</p>
+            </div>
+            <div class="ent-col-divider"><span>&#10048;</span></div>
+            <div class="ent-col">
+              <p class="ent-side-label">Her Side</p>
+              <p class="ent-name">Mrs. Maria Dela Cruz</p>
+              <p class="ent-name">Mrs. Elena Santos</p>
+              <p class="ent-name">Mrs. Rosa Reyes</p>
+              <p class="ent-name">Mrs. Ana Garcia</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Best Man & Maid of Honor -->
+        <div class="ent-highlight-row">
+          <div class="ent-highlight-card">
+            <div class="ent-highlight-icon">&#9829;</div>
+            <h3 class="ent-highlight-role">Best Man</h3>
+            <p class="ent-name">Marco Villanueva</p>
+          </div>
+          <div class="ent-highlight-card">
+            <div class="ent-highlight-icon">&#9829;</div>
+            <h3 class="ent-highlight-role">Maid of Honor</h3>
+            <p class="ent-name">Sofia Mendoza</p>
+          </div>
+        </div>
+
+        <!-- Groomsmen & Bridesmaids -->
+        <div class="ent-frame">
+          <div class="ent-two-col">
+            <div class="ent-col">
+              <div class="ent-ribbon-sm"><span>Groomsmen</span></div>
+              <p class="ent-name">Miguel Torres</p>
+              <p class="ent-name">Diego Fernandez</p>
+              <p class="ent-name">Rafael Cruz</p>
+            </div>
+            <div class="ent-col-divider"><span>&#10048;</span></div>
+            <div class="ent-col">
+              <div class="ent-ribbon-sm"><span>Bridesmaids</span></div>
+              <p class="ent-name">Isabella Ramos</p>
+              <p class="ent-name">Camille Navarro</p>
+              <p class="ent-name">Gabriella Lim</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Secondary Sponsors -->
+        <div class="ent-frame">
+          <div class="ent-ribbon"><span>Secondary Sponsors</span></div>
+          <div class="ent-three-col">
+            <div class="ent-mini">
+              <p class="ent-mini-role">Veil</p>
+              <p class="ent-name">Mr. &amp; Mrs. David Aquino</p>
+            </div>
+            <div class="ent-mini">
+              <p class="ent-mini-role">Cord</p>
+              <p class="ent-name">Mr. &amp; Mrs. James Pascual</p>
+            </div>
+            <div class="ent-mini">
+              <p class="ent-mini-role">Candle</p>
+              <p class="ent-name">Mr. &amp; Mrs. Luis Bautista</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bearers & Flower Girls -->
+        <div class="ent-bearers-row">
+          <div class="ent-bearer">
+            <div class="ent-bearer-icon">&#128218;</div>
+            <p class="ent-mini-role">Bible Bearer</p>
+            <p class="ent-name">Ethan Reyes</p>
+          </div>
+          <div class="ent-bearer">
+            <div class="ent-bearer-icon">&#128176;</div>
+            <p class="ent-mini-role">Coin Bearer</p>
+            <p class="ent-name">Nathan Cruz</p>
+          </div>
+          <div class="ent-bearer">
+            <div class="ent-bearer-icon">&#128141;</div>
+            <p class="ent-mini-role">Ring Bearer</p>
+            <p class="ent-name">Liam Santos</p>
+          </div>
+          <div class="ent-bearer">
+            <div class="ent-bearer-icon">&#127804;</div>
+            <p class="ent-mini-role">Flower Girls</p>
+            <p class="ent-name">Sophia Dela Cruz</p>
+            <p class="ent-name">Mia Garcia</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========= GALLERY (masonry staggered) ========= -->
     <section id="gallery">
       <div class="section-inner">
         <p class="section-label">Memories</p>
         <h2 class="section-title">Our Gallery</h2>
         <div class="divider"><span>✦</span></div>
-        <div class="gallery-grid">
-          <div class="gallery-item g1"><span>Photo 1</span></div>
-          <div class="gallery-item g2"><span>Photo 2</span></div>
-          <div class="gallery-item g3"><span>Photo 3</span></div>
-          <div class="gallery-item g4"><span>Photo 4</span></div>
-          <div class="gallery-item g5"><span>Photo 5</span></div>
-          <div class="gallery-item g6"><span>Photo 6</span></div>
+        <div class="gallery-masonry">
+          <div class="gallery-col">
+            <div class="gallery-item g1"><span>Photo 1</span></div>
+            <div class="gallery-item g3"><span>Photo 3</span></div>
+          </div>
+          <div class="gallery-col gallery-col-offset">
+            <div class="gallery-item g2"><span>Photo 2</span></div>
+            <div class="gallery-item g4"><span>Photo 4</span></div>
+          </div>
+          <div class="gallery-col">
+            <div class="gallery-item g5"><span>Photo 5</span></div>
+          </div>
         </div>
         <p class="gallery-hint">
           Replace the placeholder cards above with your actual photos in
@@ -178,72 +327,91 @@
       </div>
     </section>
 
-    <!-- ========= RSVP ========= -->
+    <!-- ========= RSVP (split: decorative + form) ========= -->
     <section id="rsvp">
-      <div class="section-inner">
-        <p class="section-label">Kindly Reply By April 30, 2026</p>
-        <h2 class="section-title">RSVP</h2>
-        <div class="divider"><span>✦</span></div>
-        <form id="rsvp-form" novalidate>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="name">Full Name</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                placeholder="Your full name"
-                required
-              />
-            </div>
-            <div class="form-group">
-              <label for="email">Email Address</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                placeholder="you@example.com"
-                required
-              />
-            </div>
+      <div class="rsvp-split">
+        <div class="rsvp-decorative">
+          <div class="rsvp-deco-inner">
+            <p class="rsvp-deco-tag">We Would Love</p>
+            <h2 class="rsvp-deco-title">Your Presence</h2>
+            <div class="divider light"><span>✦</span></div>
+            <p class="rsvp-deco-date">Kindly Reply By<br />April 30, 2026</p>
           </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="guests">Number of Guests</label>
-              <select id="guests" name="guests">
-                <option value="1">1 Guest</option>
-                <option value="2">2 Guests</option>
-                <option value="3">3 Guests</option>
-                <option value="4">4 Guests</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label>Attending?</label>
-              <div class="radio-group">
-                <label class="radio-label"
-                  ><input type="radio" name="attendance" value="yes" checked />
-                  Joyfully Accepts</label
-                >
-                <label class="radio-label"
-                  ><input type="radio" name="attendance" value="no" />
-                  Regretfully Declines</label
-                >
+        </div>
+        <div class="rsvp-form-side">
+          <div class="section-inner">
+            <p class="section-label">Reserve Your Seat</p>
+            <h2 class="section-title">RSVP</h2>
+            <div class="divider"><span>✦</span></div>
+            <form id="rsvp-form" novalidate>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="name">Full Name</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Your full name"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="email">Email Address</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="you@example.com"
+                    required
+                  />
+                </div>
               </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="guests">Number of Guests</label>
+                  <select id="guests" name="guests">
+                    <option value="1">1 Guest</option>
+                    <option value="2">2 Guests</option>
+                    <option value="3">3 Guests</option>
+                    <option value="4">4 Guests</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Attending?</label>
+                  <div class="radio-group">
+                    <label class="radio-label"
+                      ><input
+                        type="radio"
+                        name="attendance"
+                        value="yes"
+                        checked
+                      />
+                      Joyfully Accepts</label
+                    >
+                    <label class="radio-label"
+                      ><input type="radio" name="attendance" value="no" />
+                      Regretfully Declines</label
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="form-group full-width">
+                <label for="message">Message for the Couple</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="4"
+                  placeholder="Write a warm message or any dietary requirements…"
+                ></textarea>
+              </div>
+              <button type="submit" class="btn-primary">Send RSVP</button>
+            </form>
+            <div id="rsvp-success" class="rsvp-success hidden">
+              <p>
+                &#10084; Thank you! We look forward to celebrating with you.
+              </p>
             </div>
           </div>
-          <div class="form-group full-width">
-            <label for="message">Message for the Couple</label>
-            <textarea
-              id="message"
-              name="message"
-              rows="4"
-              placeholder="Write a warm message or any dietary requirements…"
-            ></textarea>
-          </div>
-          <button type="submit" class="btn-primary">Send RSVP</button>
-        </form>
-        <div id="rsvp-success" class="rsvp-success hidden">
-          <p>&#10084; Thank you! We look forward to celebrating with you.</p>
         </div>
       </div>
     </section>
