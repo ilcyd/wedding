@@ -261,7 +261,7 @@
       </div>
 
       <div class="actions">
-        <button type="submit" class="btn-save">&#128190; Save Changes</button>
+        <button type="submit" class="btn-save">&#11015; Download entourage-data.json</button>
       </div>
     </form>
 
@@ -358,21 +358,15 @@
             flowerGirls: getList("flowerGirls"),
           };
 
-          fetch("save-entourage.php", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(data),
-          })
-            .then(function (r) {
-              return r.json();
-            })
-            .then(function (res) {
-              if (res.ok) showToast("Saved successfully!");
-              else showToast("Error: " + (res.error || "Unknown"), true);
-            })
-            .catch(function () {
-              showToast("Could not reach the server.", true);
-            });
+          // Vercel is a static host — download the JSON, then commit & push it
+          var blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+          var url = URL.createObjectURL(blob);
+          var a = document.createElement("a");
+          a.href = url;
+          a.download = "entourage-data.json";
+          a.click();
+          URL.revokeObjectURL(url);
+          showToast("Downloaded! Replace entourage-data.json in your repo and push.");
         });
     </script>
   </body>
