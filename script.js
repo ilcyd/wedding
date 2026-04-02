@@ -2,20 +2,18 @@
    WEDDING INVITATION — SCRIPT.JS
    ============================================= */
 
-// ─── Video Splash (YouTube IFrame API) ──────────────────────────────────────
-var ytSplashPlayer;
-
-window.onYouTubeIframeAPIReady = function () {
-  var splash   = document.getElementById('video-splash');
-  var skipBtn  = document.getElementById('splash-skip');
+// ─── Video Splash ────────────────────────────────────────────────────────────
+(function initVideoSplash() {
+  var splash    = document.getElementById('video-splash');
+  var video     = document.getElementById('splash-video');
+  var skipBtn   = document.getElementById('splash-skip');
   var unmuteBtn = document.getElementById('splash-unmute');
   var muteIcon  = document.getElementById('mute-icon');
-  if (!splash) { initScrollIntro(); return; }
+  if (!splash || !video) { initScrollIntro(); return; }
 
   document.body.style.overflow = 'hidden';
 
   function dismiss() {
-    if (ytSplashPlayer) { try { ytSplashPlayer.stopVideo(); } catch(e) {} }
     splash.classList.add('vs-fade');
     setTimeout(function () {
       splash.remove();
@@ -23,41 +21,14 @@ window.onYouTubeIframeAPIReady = function () {
     }, 820);
   }
 
-  ytSplashPlayer = new YT.Player('splash-yt', {
-    videoId: '3D86eaPMWgw',
-    playerVars: {
-      autoplay: 1,
-      mute: 1,
-      controls: 0,
-      rel: 0,
-      playsinline: 1,
-      modestbranding: 1
-    },
-    events: {
-      onReady: function (e) {
-        e.target.setPlaybackQuality('hd1080');
-        e.target.playVideo();
-      },
-      onStateChange: function (e) {
-        if (e.data === YT.PlayerState.ENDED) { dismiss(); }
-      }
-    }
-  });
-
+  video.addEventListener('ended', dismiss, { once: true });
   skipBtn.addEventListener('click', dismiss, { once: true });
 
-  // Unmute toggle
   unmuteBtn.addEventListener('click', function () {
-    if (!ytSplashPlayer) return;
-    if (ytSplashPlayer.isMuted()) {
-      ytSplashPlayer.unMute();
-      muteIcon.innerHTML = '&#128266;';
-    } else {
-      ytSplashPlayer.mute();
-      muteIcon.innerHTML = '&#128263;';
-    }
+    video.muted = !video.muted;
+    muteIcon.innerHTML = video.muted ? '&#128263;' : '&#128266;';
   });
-};
+}());
 
 // ─── Scroll Intro ────────────────────────────────────────────────────────────
 function initScrollIntro() {
