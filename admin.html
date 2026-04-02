@@ -141,15 +141,37 @@
       .toast.error {
         background: #a63a3a;
       }
+      .token-card {
+        background: #fffbf5;
+        border: 1px solid #e5d8c8;
+        border-radius: 12px;
+        padding: 18px 24px;
+        margin-bottom: 20px;
+        display: flex;
+        gap: 12px;
+        align-items: flex-end;
+        flex-wrap: wrap;
+      }
+      .token-card label { font-size: 0.85rem; color: #6b4f3a; font-weight: 600; display: block; margin-bottom: 6px; }
+      .token-card input { flex: 1; min-width: 220px; padding: 8px 12px; border: 1px solid #d9d0c7; border-radius: 8px; font-size: 0.9rem; font-family: monospace; background: #faf8f5; }
+      .token-card input:focus { outline: none; border-color: #a68b6b; }
+      .token-note { font-size: 0.78rem; color: #a09080; margin-top: 4px; }
     </style>
   </head>
   <body>
     <h1>&#128141; Entourage Editor</h1>
     <p class="subtitle">
-      Edit the names below, then click Save. Changes appear on the wedding site
-      instantly.
+      Edit names below and click Save &mdash; it pushes directly to GitHub and Vercel redeploys automatically.
     </p>
     <div id="toast" class="toast"></div>
+
+    <div class="token-card">
+      <div style="flex:1;min-width:220px">
+        <label for="gh-token">&#128273; GitHub Personal Access Token</label>
+        <input id="gh-token" type="password" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx" autocomplete="off" />
+        <p class="token-note">Saved in your browser only. Use a fine-grained token with <strong>Contents: Read &amp; Write</strong> for this repo only.</p>
+      </div>
+    </div>
 
     <form id="editor">
       <!-- Principal Sponsors -->
@@ -261,7 +283,7 @@
       </div>
 
       <div class="actions">
-        <button type="submit" class="btn-save">&#11015; Download entourage-data.json</button>
+        <button type="submit" class="btn-save">&#128640; Save &amp; Push to GitHub</button>
       </div>
     </form>
 
@@ -298,6 +320,10 @@
           t.style.display = "none";
         }, 3000);
       }
+
+      /* ── restore saved token ── */
+      var savedToken = localStorage.getItem('gh_token');
+      if (savedToken) document.getElementById('gh-token').value = savedToken;
 
       /* ── load current data ── */
       fetch("entourage-data.json")
@@ -358,15 +384,51 @@
             flowerGirls: getList("flowerGirls"),
           };
 
-          // Vercel is a static host — download the JSON, then commit & push it
-          var blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
-          var url = URL.createObjectURL(blob);
-          var a = document.createElement("a");
-          a.href = url;
-          a.download = "entourage-data.json";
-          a.click();
-          URL.revokeObjectURL(url);
-          showToast("Downloaded! Replace entourage-data.json in your repo and push.");
+          var token = document.getElementById('gh-token').value.trim();
+          if (!token) { showToast('Please enter your GitHub token first.', true); return; }
+          localStorage.setItem('gh_token', token);
+
+          var owner = 'ilcyd';
+          var repo  = 'wedding';
+          var path  = 'entourage-data.json';
+          var branch = 'master';
+          var apiBase = 'https://api.github.com/repos/' + owner + '/' + repo + '/contents/' + path;
+          var headers = { 'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json' };
+          var content = btoa(unescape(encodeURIComponent(JSON.stringify(data, null, 2))));
+
+          var saveBtn = document.querySelector('.btn-save');
+          saveBtn.disabled = true;
+          saveBtn.textContent = 'Pushing...';
+
+          // Get current file SHA first
+          fetch(apiBase + '?ref=' + branch, { headers: headers })
+            .then(function(r) { return r.json(); })
+            .then(function(file) {
+              return fetch(apiBase, {
+                method: 'PUT',
+                headers: headers,
+                body: JSON.stringify({
+                  message: 'Update entourage names',
+                  content: content,
+                  sha: file.sha,
+                  branch: branch
+                })
+              });
+            })
+            .then(function(r) {
+              if (r.ok) {
+                showToast('Pushed! Vercel will redeploy in ~30 seconds.');
+              } else {
+                return r.json().then(function(e) { throw new Error(e.message || r.status); });
+              }
+            })
+            .catch(function(err) {
+              showToast('Error: ' + err.message, true);
+            })
+            .finally(function() {
+              saveBtn.disabled = false;
+              saveBtn.innerHTML = '&#128640; Save &amp; Push to GitHub';
+            });
         });
     </script>
   </body>
