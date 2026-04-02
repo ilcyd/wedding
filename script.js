@@ -123,6 +123,68 @@ function initScrollIntro() {
 }());
 
 
+// ─── Gallery Lightbox ────────────────────────────────────────────────────────
+(function initLightbox() {
+  const lb       = document.getElementById('lightbox');
+  const lbImg    = document.getElementById('lb-img');
+  const lbClose  = document.getElementById('lb-close');
+  const lbPrev   = document.getElementById('lb-prev');
+  const lbNext   = document.getElementById('lb-next');
+  const lbCounter = document.getElementById('lb-counter');
+  if (!lb) return;
+
+  const items = Array.from(document.querySelectorAll('.gallery-item[data-src]'));
+  let current = 0;
+
+  function showImg(index) {
+    current = (index + items.length) % items.length;
+    lbImg.classList.add('lb-loading');
+    const src = items[current].dataset.src;
+    const tmp = new Image();
+    tmp.onload = function () {
+      lbImg.src = src;
+      lbImg.alt = items[current].getAttribute('aria-label') || '';
+      lbImg.classList.remove('lb-loading');
+    };
+    tmp.src = src;
+    lbCounter.textContent = (current + 1) + ' / ' + items.length;
+  }
+
+  function open(index) {
+    lb.removeAttribute('hidden');
+    document.body.style.overflow = 'hidden';
+    showImg(index);
+    lbClose.focus();
+  }
+
+  function close() {
+    lb.setAttribute('hidden', '');
+    document.body.style.overflow = '';
+  }
+
+  items.forEach(function (item, i) {
+    item.addEventListener('click', function () { open(i); });
+    item.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(i); }
+    });
+  });
+
+  lbClose.addEventListener('click', close);
+  lbPrev.addEventListener('click', function () { showImg(current - 1); });
+  lbNext.addEventListener('click', function () { showImg(current + 1); });
+
+  lb.addEventListener('click', function (e) {
+    if (e.target === lb) close();
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (lb.hasAttribute('hidden')) return;
+    if (e.key === 'Escape')    close();
+    if (e.key === 'ArrowLeft') showImg(current - 1);
+    if (e.key === 'ArrowRight') showImg(current + 1);
+  });
+}());
+
 // ─── Scroll Reveal ───────────────────────────────────────────────────────────
 (function initReveal() {
   const targets = [

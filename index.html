@@ -325,15 +325,55 @@
         <div class="divider"><span>✦</span></div>
         <div class="gallery-masonry">
           <div class="gallery-col">
-            <div class="gallery-item g1"><span>Photo 1</span></div>
-            <div class="gallery-item g3"><span>Photo 3</span></div>
+            <div
+              class="gallery-item g1"
+              data-src="pics/1.jpg"
+              role="button"
+              tabindex="0"
+              aria-label="View Photo 1"
+            >
+              <span>Photo 1</span>
+            </div>
+            <div
+              class="gallery-item g3"
+              data-src="pics/3.jpg"
+              role="button"
+              tabindex="0"
+              aria-label="View Photo 3"
+            >
+              <span>Photo 3</span>
+            </div>
           </div>
           <div class="gallery-col gallery-col-offset">
-            <div class="gallery-item g2"><span>Photo 2</span></div>
-            <div class="gallery-item g4"><span>Photo 4</span></div>
+            <div
+              class="gallery-item g2"
+              data-src="pics/2.jpg"
+              role="button"
+              tabindex="0"
+              aria-label="View Photo 2"
+            >
+              <span>Photo 2</span>
+            </div>
+            <div
+              class="gallery-item g4"
+              data-src="pics/4.jpg"
+              role="button"
+              tabindex="0"
+              aria-label="View Photo 4"
+            >
+              <span>Photo 4</span>
+            </div>
           </div>
           <div class="gallery-col">
-            <div class="gallery-item g5"><span>Photo 5</span></div>
+            <div
+              class="gallery-item g5"
+              data-src="pics/5.jpg"
+              role="button"
+              tabindex="0"
+              aria-label="View Photo 5"
+            >
+              <span>Photo 5</span>
+            </div>
           </div>
         </div>
         <p class="gallery-hint">
@@ -460,6 +500,23 @@
       </p>
       <p class="footer-credit">Made with &#10084; for our special day</p>
     </footer>
+
+    <!-- ========= LIGHTBOX ========= -->
+    <div
+      id="lightbox"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Photo viewer"
+      hidden
+    >
+      <button id="lb-close" aria-label="Close">&times;</button>
+      <button id="lb-prev" aria-label="Previous">&#8249;</button>
+      <button id="lb-next" aria-label="Next">&#8250;</button>
+      <div id="lb-img-wrap">
+        <img id="lb-img" src="" alt="" />
+      </div>
+      <p id="lb-counter"></p>
+    </div>
 
     <script src="script.js"></script>
   </body>
