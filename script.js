@@ -54,7 +54,7 @@ function initScrollIntro() {
 
 // ─── Countdown Timer ───────────────────────────────────────────────────────
 (function initCountdown() {
-  const weddingDate = new Date('2026-05-09T14:00:00');
+  const weddingDate = new Date('2026-05-09T12:30:00');
 
   function pad(n) { return String(n).padStart(2, '0'); }
 
@@ -81,87 +81,6 @@ function initScrollIntro() {
 
   tick();
   setInterval(tick, 1000);
-}());
-
-
-// ─── Entourage (from JSON) ──────────────────────────────────────────────────
-(function initEntourage() {
-  var container = document.getElementById('entourage-content');
-  if (!container) return;
-
-  function esc(s) {
-    var d = document.createElement('div');
-    d.textContent = s;
-    return d.innerHTML;
-  }
-
-  function names(arr) {
-    return arr.map(function (n) { return '<p class="ent-name">' + esc(n) + '</p>'; }).join('');
-  }
-
-  fetch('entourage-data.json')
-    .then(function (r) { return r.json(); })
-    .then(function (d) {
-      container.innerHTML =
-        // Principal Sponsors
-        '<div class="ent-frame ent-principal">' +
-          '<div class="ent-ribbon"><span>Principal Sponsors</span></div>' +
-          '<div class="ent-two-col">' +
-            '<div class="ent-col">' +
-              '<p class="ent-side-label">His Side</p>' + names(d.principalSponsors.his) +
-            '</div>' +
-            '<div class="ent-col-divider"><span>&#10048;</span></div>' +
-            '<div class="ent-col">' +
-              '<p class="ent-side-label">Her Side</p>' + names(d.principalSponsors.her) +
-            '</div>' +
-          '</div>' +
-        '</div>' +
-
-        // Best Man & Maid of Honor
-        '<div class="ent-highlight-row">' +
-          '<div class="ent-highlight-card">' +
-            '<div class="ent-highlight-icon">&#9829;</div>' +
-            '<h3 class="ent-highlight-role">Best Man</h3>' +
-            '<p class="ent-name">' + esc(d.bestMan) + '</p>' +
-          '</div>' +
-          '<div class="ent-highlight-card">' +
-            '<div class="ent-highlight-icon">&#9829;</div>' +
-            '<h3 class="ent-highlight-role">Maid of Honor</h3>' +
-            '<p class="ent-name">' + esc(d.maidOfHonor) + '</p>' +
-          '</div>' +
-        '</div>' +
-
-        // Groomsmen & Bridesmaids
-        '<div class="ent-frame">' +
-          '<div class="ent-two-col">' +
-            '<div class="ent-col">' +
-              '<div class="ent-ribbon-sm"><span>Groomsmen</span></div>' + names(d.groomsmen) +
-            '</div>' +
-            '<div class="ent-col-divider"><span>&#10048;</span></div>' +
-            '<div class="ent-col">' +
-              '<div class="ent-ribbon-sm"><span>Bridesmaids</span></div>' + names(d.bridesmaids) +
-            '</div>' +
-          '</div>' +
-        '</div>' +
-
-        // Secondary Sponsors
-        '<div class="ent-frame">' +
-          '<div class="ent-ribbon"><span>Secondary Sponsors</span></div>' +
-          '<div class="ent-three-col">' +
-            '<div class="ent-mini"><p class="ent-mini-role">Veil</p><p class="ent-name">' + esc(d.secondarySponsors.veil) + '</p></div>' +
-            '<div class="ent-mini"><p class="ent-mini-role">Cord</p><p class="ent-name">' + esc(d.secondarySponsors.cord) + '</p></div>' +
-            '<div class="ent-mini"><p class="ent-mini-role">Candle</p><p class="ent-name">' + esc(d.secondarySponsors.candle) + '</p></div>' +
-          '</div>' +
-        '</div>' +
-
-        // Bearers & Flower Girls
-        '<div class="ent-bearers-row">' +
-          '<div class="ent-bearer"><div class="ent-bearer-icon">&#128218;</div><p class="ent-mini-role">Bible Bearer</p><p class="ent-name">' + esc(d.bearers.bible) + '</p></div>' +
-          '<div class="ent-bearer"><div class="ent-bearer-icon">&#128176;</div><p class="ent-mini-role">Coin Bearer</p><p class="ent-name">' + esc(d.bearers.coin) + '</p></div>' +
-          '<div class="ent-bearer"><div class="ent-bearer-icon">&#128141;</div><p class="ent-mini-role">Ring Bearer</p><p class="ent-name">' + esc(d.bearers.ring) + '</p></div>' +
-          '<div class="ent-bearer"><div class="ent-bearer-icon">&#127804;</div><p class="ent-mini-role">Flower Girls</p>' + names(d.flowerGirls) + '</div>' +
-        '</div>';
-    });
 }());
 
 
@@ -294,7 +213,7 @@ function initScrollIntro() {
   targets.forEach(sel => {
     document.querySelectorAll(sel).forEach((el, i) => {
       el.classList.add('reveal');
-      el.style.transitionDelay = `${i * 0.08}s`;
+      el.style.transitionDelay = `${Math.min(i * 0.08, 0.5)}s`;
     });
   });
 
