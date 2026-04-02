@@ -1585,7 +1585,7 @@ a {
   transition: var(--transition);
   position: relative;
   box-shadow: var(--shadow-card);
-  background-size: cover;
+  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   border: 1px solid rgba(183, 148, 214, 0.12);
