@@ -2408,6 +2408,7 @@ textarea {
   }
   .ent-name {
     font-size: 0.95rem;
+    line-height: 2;
   }
   .ent-highlight-card {
     padding: 24px 18px 22px;
@@ -2418,6 +2419,16 @@ textarea {
   .ent-frame {
     padding: 28px 16px 24px;
     margin-bottom: 36px;
+  }
+  .ent-bearer {
+    min-width: 130px;
+    max-width: 100%;
+    flex: 1 1 calc(50% - 12px);
+  }
+  .ent-mini {
+    min-width: 130px;
+    max-width: 100%;
+    flex: 1 1 calc(50% - 14px);
   }
 
   /* Events */
@@ -2525,6 +2536,43 @@ textarea {
   .g5 {
     height: 180px;
     border-radius: 12px;
+  }
+
+  /* Entourage */
+  .ent-frame {
+    padding: 22px 12px 20px;
+    margin-bottom: 28px;
+  }
+  .ent-name {
+    font-size: 0.88rem;
+    line-height: 1.9;
+  }
+  .ent-highlight-card {
+    max-width: 100%;
+    padding: 20px 14px 18px;
+  }
+  .ent-highlight-row {
+    max-width: 100%;
+    gap: 14px;
+  }
+  .ent-bearer {
+    flex: 1 1 calc(50% - 10px);
+    min-width: 120px;
+    padding: 18px 10px 16px;
+  }
+  .ent-bearer-icon {
+    font-size: 1.3rem;
+  }
+  .ent-mini {
+    flex: 1 1 calc(50% - 10px);
+    min-width: 120px;
+    padding: 14px 8px;
+  }
+  .ent-bearers-row {
+    gap: 14px;
+  }
+  .ent-three-col {
+    gap: 14px;
   }
 
   /* Attire */
