@@ -11,8 +11,18 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
+    <script src="https://www.youtube.com/iframe_api"></script>
   </head>
   <body>
+    <!-- ========= VIDEO SPLASH ========= -->
+    <div id="video-splash">
+      <div id="splash-yt"></div>
+      <button id="splash-skip">Skip &rsaquo;</button>
+      <div id="splash-unmute" title="Tap to unmute">
+        <span id="mute-icon">&#128263;</span>
+      </div>
+    </div>
+
     <!-- ========= SCROLL INTRO ========= -->
     <div id="scroll-intro" aria-hidden="true" title="Click to skip">
       <div class="si-panel si-top">
@@ -49,17 +59,6 @@
 
     <!-- ========= HERO (split layout) ========= -->
     <section id="hero">
-      <!-- Background video — replace src with your own .mp4 -->
-      <video
-        class="hero-bg-video"
-        autoplay
-        muted
-        loop
-        playsinline
-        aria-hidden="true"
-      >
-        <source src="pics/hero-bg.mp4" type="video/mp4" />
-      </video>
       <div class="hero-bg-overlay"></div>
       <div class="petals-container" id="petals"></div>
       <div class="hero-split">
@@ -347,10 +346,20 @@
         <h2 class="section-title">Our Video</h2>
         <div class="divider"><span>✦</span></div>
         <div class="video-wrapper">
-          <video controls playsinline>
-            <source src="vid/SUMMER PRENUP (MC).mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/3D86eaPMWgw?rel=0"
+            title="Save the Date — Irneil &amp; Summer"
+            frameborder="0"
+            allow="
+              accelerometer;
+              autoplay;
+              clipboard-write;
+              encrypted-media;
+              gyroscope;
+              picture-in-picture;
+            "
+            allowfullscreen
+          ></iframe>
         </div>
       </div>
     </section>

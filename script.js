@@ -2,28 +2,79 @@
    WEDDING INVITATION — SCRIPT.JS
    ============================================= */
 
+// ─── Video Splash (YouTube IFrame API) ──────────────────────────────────────
+var ytSplashPlayer;
+
+window.onYouTubeIframeAPIReady = function () {
+  var splash   = document.getElementById('video-splash');
+  var skipBtn  = document.getElementById('splash-skip');
+  var unmuteBtn = document.getElementById('splash-unmute');
+  var muteIcon  = document.getElementById('mute-icon');
+  if (!splash) { initScrollIntro(); return; }
+
+  document.body.style.overflow = 'hidden';
+
+  function dismiss() {
+    if (ytSplashPlayer) { try { ytSplashPlayer.stopVideo(); } catch(e) {} }
+    splash.classList.add('vs-fade');
+    setTimeout(function () {
+      splash.remove();
+      initScrollIntro();
+    }, 820);
+  }
+
+  ytSplashPlayer = new YT.Player('splash-yt', {
+    videoId: '3D86eaPMWgw',
+    playerVars: {
+      autoplay: 1,
+      mute: 1,
+      controls: 0,
+      rel: 0,
+      playsinline: 1,
+      modestbranding: 1
+    },
+    events: {
+      onReady: function (e) { e.target.playVideo(); },
+      onStateChange: function (e) {
+        if (e.data === YT.PlayerState.ENDED) { dismiss(); }
+      }
+    }
+  });
+
+  skipBtn.addEventListener('click', dismiss, { once: true });
+
+  // Unmute toggle
+  unmuteBtn.addEventListener('click', function () {
+    if (!ytSplashPlayer) return;
+    if (ytSplashPlayer.isMuted()) {
+      ytSplashPlayer.unMute();
+      muteIcon.innerHTML = '&#128266;';
+    } else {
+      ytSplashPlayer.mute();
+      muteIcon.innerHTML = '&#128263;';
+    }
+  });
+};
+
 // ─── Scroll Intro ────────────────────────────────────────────────────────────
-(function initScrollIntro() {
+function initScrollIntro() {
   const intro = document.getElementById('scroll-intro');
   if (!intro) return;
 
-  // Lock scroll while covering the page
   document.body.style.overflow = 'hidden';
 
   function openScroll() {
     intro.classList.add('si-open');
-
     setTimeout(function () {
       intro.remove();
       document.body.style.overflow = '';
     }, 1500);
   }
 
-  // Click/tap to open
   intro.addEventListener('click', function () {
     openScroll();
   }, { once: true });
-}());
+}
 
 
 // ─── Countdown Timer ───────────────────────────────────────────────────────
