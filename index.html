@@ -15,16 +15,14 @@
   <body>
     <!-- ========= VIDEO SPLASH ========= -->
     <div id="video-splash">
-      <video id="splash-video" playsinline autoplay muted>
+      <video id="splash-video" playsinline>
         <source
           src="https://github.com/ilcyd/wedding/releases/download/v1.0/SUMMER.PRENUP.MC.mp4"
           type="video/mp4"
         />
       </video>
+      <button id="splash-play" title="Tap to play">&#9654;</button>
       <button id="splash-skip">Skip &rsaquo;</button>
-      <div id="splash-unmute" title="Tap to unmute">
-        <span id="mute-icon">&#128263;</span>
-      </div>
     </div>
 
     <!-- ========= SCROLL INTRO ========= -->
@@ -216,104 +214,8 @@
         <h2 class="section-title">Entourage</h2>
         <div class="divider"><span>✦</span></div>
 
-        <!-- Principal Sponsors -->
-        <div class="ent-frame ent-principal">
-          <div class="ent-ribbon"><span>Principal Sponsors</span></div>
-          <div class="ent-two-col">
-            <div class="ent-col">
-              <p class="ent-side-label">His Side</p>
-              <p class="ent-name">Mr. Juan Dela Cruz</p>
-              <p class="ent-name">Mr. Roberto Santos</p>
-              <p class="ent-name">Mr. Antonio Reyes</p>
-              <p class="ent-name">Mr. Carlos Garcia</p>
-            </div>
-            <div class="ent-col-divider"><span>&#10048;</span></div>
-            <div class="ent-col">
-              <p class="ent-side-label">Her Side</p>
-              <p class="ent-name">Mrs. Maria Dela Cruz</p>
-              <p class="ent-name">Mrs. Elena Santos</p>
-              <p class="ent-name">Mrs. Rosa Reyes</p>
-              <p class="ent-name">Mrs. Ana Garcia</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Best Man & Maid of Honor -->
-        <div class="ent-highlight-row">
-          <div class="ent-highlight-card">
-            <div class="ent-highlight-icon">&#9829;</div>
-            <h3 class="ent-highlight-role">Best Man</h3>
-            <p class="ent-name">Marco Villanueva</p>
-          </div>
-          <div class="ent-highlight-card">
-            <div class="ent-highlight-icon">&#9829;</div>
-            <h3 class="ent-highlight-role">Maid of Honor</h3>
-            <p class="ent-name">Sofia Mendoza</p>
-          </div>
-        </div>
-
-        <!-- Groomsmen & Bridesmaids -->
-        <div class="ent-frame">
-          <div class="ent-two-col">
-            <div class="ent-col">
-              <div class="ent-ribbon-sm"><span>Groomsmen</span></div>
-              <p class="ent-name">Miguel Torres</p>
-              <p class="ent-name">Diego Fernandez</p>
-              <p class="ent-name">Rafael Cruz</p>
-            </div>
-            <div class="ent-col-divider"><span>&#10048;</span></div>
-            <div class="ent-col">
-              <div class="ent-ribbon-sm"><span>Bridesmaids</span></div>
-              <p class="ent-name">Isabella Ramos</p>
-              <p class="ent-name">Camille Navarro</p>
-              <p class="ent-name">Gabriella Lim</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Secondary Sponsors -->
-        <div class="ent-frame">
-          <div class="ent-ribbon"><span>Secondary Sponsors</span></div>
-          <div class="ent-three-col">
-            <div class="ent-mini">
-              <p class="ent-mini-role">Veil</p>
-              <p class="ent-name">Mr. &amp; Mrs. David Aquino</p>
-            </div>
-            <div class="ent-mini">
-              <p class="ent-mini-role">Cord</p>
-              <p class="ent-name">Mr. &amp; Mrs. James Pascual</p>
-            </div>
-            <div class="ent-mini">
-              <p class="ent-mini-role">Candle</p>
-              <p class="ent-name">Mr. &amp; Mrs. Luis Bautista</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Bearers & Flower Girls -->
-        <div class="ent-bearers-row">
-          <div class="ent-bearer">
-            <div class="ent-bearer-icon">&#128218;</div>
-            <p class="ent-mini-role">Bible Bearer</p>
-            <p class="ent-name">Ethan Reyes</p>
-          </div>
-          <div class="ent-bearer">
-            <div class="ent-bearer-icon">&#128176;</div>
-            <p class="ent-mini-role">Coin Bearer</p>
-            <p class="ent-name">Nathan Cruz</p>
-          </div>
-          <div class="ent-bearer">
-            <div class="ent-bearer-icon">&#128141;</div>
-            <p class="ent-mini-role">Ring Bearer</p>
-            <p class="ent-name">Liam Santos</p>
-          </div>
-          <div class="ent-bearer">
-            <div class="ent-bearer-icon">&#127804;</div>
-            <p class="ent-mini-role">Flower Girls</p>
-            <p class="ent-name">Sophia Dela Cruz</p>
-            <p class="ent-name">Mia Garcia</p>
-          </div>
-        </div>
+        <!-- Rendered dynamically from entourage-data.json -->
+        <div id="entourage-content"></div>
       </div>
     </section>
 

@@ -1,0 +1,42 @@
+{
+  "principalSponsors": {
+    "his": [
+      "Mr. Juan Dela Cruz",
+      "Mr. Roberto Santos",
+      "Mr. Antonio Reyes",
+      "Mr. Carlos Garcia"
+    ],
+    "her": [
+      "Mrs. Maria Dela Cruz",
+      "Mrs. Elena Santos",
+      "Mrs. Rosa Reyes",
+      "Mrs. Ana Garcia"
+    ]
+  },
+  "bestMan": "Marco Villanueva",
+  "maidOfHonor": "Sofia Mendoza",
+  "groomsmen": [
+    "Miguel Torres",
+    "Diego Fernandez",
+    "Rafael Cruz"
+  ],
+  "bridesmaids": [
+    "Isabella Ramos",
+    "Camille Navarro",
+    "Gabriella Lim"
+  ],
+  "secondarySponsors": {
+    "veil": "Mr. & Mrs. David Aquino",
+    "cord": "Mr. & Mrs. James Pascual",
+    "candle": "Mr. & Mrs. Luis Bautista"
+  },
+  "bearers": {
+    "bible": "Ethan Reyes",
+    "coin": "Nathan Cruz",
+    "ring": "Liam Santos"
+  },
+  "flowerGirls": [
+    "Sophia Dela Cruz",
+    "Mia Garcia"
+  ]
+}
