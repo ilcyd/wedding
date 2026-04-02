@@ -87,7 +87,12 @@ function initScrollIntro() {
 // ─── Falling Lilac Petals ───────────────────────────────────────────────────
 (function initPetals() {
   const container = document.getElementById('petals');
-  const COUNT     = 26;
+  const COUNT     = 36;
+
+  if (!container) return;
+
+  // Move the petal layer out of the hero so it can cover the full page.
+  document.body.appendChild(container);
 
   // Soft lilac shades for petal bodies.
   const colors = ['#e7d2fb', '#d4b0ef', '#bf93e2', '#a774d0', '#c79be7', '#f0e0ff'];
