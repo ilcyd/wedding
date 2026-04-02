@@ -42,12 +42,25 @@
         <li><a href="#details">Details</a></li>
         <li><a href="#entourage">Entourage</a></li>
         <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#video">Video</a></li>
         <li><a href="#rsvp">RSVP</a></li>
       </ul>
     </nav>
 
     <!-- ========= HERO (split layout) ========= -->
     <section id="hero">
+      <!-- Background video — replace src with your own .mp4 -->
+      <video
+        class="hero-bg-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        aria-hidden="true"
+      >
+        <source src="pics/hero-bg.mp4" type="video/mp4" />
+      </video>
+      <div class="hero-bg-overlay"></div>
       <div class="petals-container" id="petals"></div>
       <div class="hero-split">
         <div class="hero-text">
@@ -324,6 +337,21 @@
           Replace the placeholder cards above with your actual photos in
           <code>style.css</code>.
         </p>
+      </div>
+    </section>
+
+    <!-- ========= VIDEO ========= -->
+    <section id="video">
+      <div class="section-inner">
+        <p class="section-label">Watch Our Journey</p>
+        <h2 class="section-title">Our Video</h2>
+        <div class="divider"><span>✦</span></div>
+        <div class="video-wrapper">
+          <video controls playsinline>
+            <source src="vid/SUMMER PRENUP (MC).mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
       </div>
     </section>
 
