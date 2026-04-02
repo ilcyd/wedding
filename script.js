@@ -34,7 +34,10 @@ window.onYouTubeIframeAPIReady = function () {
       modestbranding: 1
     },
     events: {
-      onReady: function (e) { e.target.playVideo(); },
+      onReady: function (e) {
+        e.target.setPlaybackQuality('hd1080');
+        e.target.playVideo();
+      },
       onStateChange: function (e) {
         if (e.data === YT.PlayerState.ENDED) { dismiss(); }
       }
