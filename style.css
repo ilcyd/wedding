@@ -2259,18 +2259,20 @@ textarea {
     width: 100%;
   }
   .ent-two-col {
-    flex-direction: column;
-    gap: 24px;
+    gap: 0;
+  }
+  .ent-col {
+    padding: 0 8px;
   }
   .ent-col-divider {
-    flex-direction: row;
-    align-self: auto;
-    padding: 4px 0;
+    flex-direction: column;
+    align-self: stretch;
+    padding: 0 4px;
   }
   .ent-col-divider::before,
   .ent-col-divider::after {
-    width: auto;
-    height: 1px;
+    width: 1px;
+    height: auto;
     flex: 1;
   }
   .ent-three-col {
