@@ -26,9 +26,22 @@
   // User tap triggers play with sound (satisfies browser autoplay policy)
   playBtn.addEventListener('click', function () {
     video.muted = false;
-    video.play();
+    var playPromise = video.play();
+    // Handle iOS compatibility
+    if (playPromise !== undefined) {
+      playPromise.catch(function(error) {
+        console.log('Video playback failed:', error);
+        dismiss();
+      });
+    }
     playBtn.style.display = 'none';
   }, { once: true });
+
+  // Handle video load errors gracefully
+  video.addEventListener('error', function() {
+    console.log('Video failed to load');
+    setTimeout(dismiss, 500);
+  });
 }());
 
 // ─── Scroll Intro ────────────────────────────────────────────────────────────

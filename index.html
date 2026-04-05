@@ -10,16 +10,26 @@
       href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap"
       rel="stylesheet"
     />
+    <!-- Bootstrap 5 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUarbnLu16mV7zKLn2vEn6KEP/wJc8+NIJDbr9izlHIYKkaLiGj"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <!-- ========= VIDEO SPLASH ========= -->
     <div id="video-splash">
-      <video id="splash-video" playsinline>
-        <source
-          src="https://github.com/ilcyd/wedding/releases/download/v1.0/SUMMER.PRENUP.MC.mp4"
-          type="video/mp4"
-        />
+      <video
+        id="splash-video"
+        playsinline
+        webkit-playsinline="true"
+        preload="metadata"
+        muted
+      >
+        <source src="vid/SUMMER PRENUP (MC).mp4" type="video/mp4" />
       </video>
       <div class="splash-monogram" aria-hidden="true">
         <img src="pics/IS combine initials.png" alt="" />
@@ -39,13 +49,13 @@
         <div class="si-inner">
           <img
             class="deco-flower deco-flower-sm deco-flower-tr"
-            src="pics/flower design.png"
+            src="pics/new flower.png"
             alt=""
             aria-hidden="true"
           />
           <img
             class="deco-flower deco-flower-sm deco-flower-bl"
-            src="pics/flower design.png"
+            src="pics/new flower.png"
             alt=""
             aria-hidden="true"
           />
@@ -63,16 +73,42 @@
     </div>
 
     <!-- ========= STICKY NAV ========= -->
-    <nav id="main-nav">
-      <ul>
-        <li><a href="#hero">Home</a></li>
-        <li><a href="#story">Story</a></li>
-        <li><a href="#details">Details</a></li>
-        <li><a href="#entourage">Entourage</a></li>
-        <li><a href="#gallery">Gallery</a></li>
-        <li><a href="#video">Video</a></li>
-        <li><a href="#rsvp">RSVP</a></li>
-      </ul>
+    <nav id="main-nav" class="navbar navbar-expand-lg navbar-light sticky-top">
+      <div class="container-fluid">
+        <span class="navbar-brand">I &amp; S</span>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="#hero">Home</a></li>
+            <li class="nav-item">
+              <a class="nav-link" href="#story">Story</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#details">Details</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#entourage">Entourage</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#gallery">Gallery</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#video">Video</a>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="#rsvp">RSVP</a></li>
+          </ul>
+        </div>
+      </div>
     </nav>
 
     <!-- ========= HERO (split layout) ========= -->
@@ -80,13 +116,13 @@
       <div class="hero-bg-overlay"></div>
       <img
         class="deco-flower deco-flower-lg deco-flower-tr"
-        src="pics/flower design.png"
+        src="pics/new flower.png"
         alt=""
         aria-hidden="true"
       />
       <img
         class="deco-flower deco-flower-lg deco-flower-bl"
-        src="pics/flower design.png"
+        src="pics/new flower.png"
         alt=""
         aria-hidden="true"
       />
@@ -94,8 +130,8 @@
         <img src="pics/IS combine initials.png" alt="" />
       </div>
       <div class="petals-container" id="petals"></div>
-      <div class="hero-split">
-        <div class="hero-text">
+      <div class="hero-split row g-0 align-items-center mx-0">
+        <div class="hero-text col-12 col-lg-6">
           <p class="hero-label">Together with our families</p>
           <p class="hero-sub">we</p>
           <h1 class="couple-names">Irneil <span>&amp;</span> Summer</h1>
@@ -107,7 +143,7 @@
           <p class="wedding-year">Two Thousand and Twenty-Six</p>
           <a href="#details" class="btn-outline">View Details</a>
         </div>
-        <div class="hero-photo">
+        <div class="hero-photo col-12 col-lg-6">
           <div class="hero-photo-frame"></div>
         </div>
       </div>
@@ -147,8 +183,8 @@
         <p class="section-label">Join Us</p>
         <h2 class="section-title">Event Details</h2>
         <div class="divider"><span>✦</span></div>
-        <div class="events-grid">
-          <div class="event-card">
+        <div class="events-grid row g-4 justify-content-center">
+          <div class="event-card col-12 col-md-5">
             <div class="event-card-img">
               <img src="pics/ceremony.jpg" alt="Ceremony venue" />
             </div>
@@ -167,13 +203,15 @@
             >
           </div>
 
-          <div class="event-divider">
+          <div
+            class="event-divider col-12 d-flex align-items-center justify-content-center"
+          >
             <div class="event-divider-line"></div>
             <span class="event-amp">&amp;</span>
             <div class="event-divider-line"></div>
           </div>
 
-          <div class="event-card">
+          <div class="event-card col-12 col-md-5">
             <div class="event-card-img">
               <img src="pics/reception.jpg" alt="Reception venue" />
             </div>
@@ -983,15 +1021,18 @@
     <!-- ========= VIDEO ========= -->
     <section id="video">
       <div class="section-inner">
-        <p class="section-label">Watch Our Journey</p>
-        <h2 class="section-title">Our Video</h2>
+        <p class="section-label">Watch</p>
+        <h2 class="section-title">Our Save The Date Video</h2>
         <div class="divider"><span>✦</span></div>
         <div class="video-wrapper">
-          <video controls playsinline>
-            <source
-              src="https://github.com/ilcyd/wedding/releases/download/v1.0/SUMMER.PRENUP.MC.mp4"
-              type="video/mp4"
-            />
+          <video
+            controls
+            playsinline
+            webkit-playsinline="true"
+            preload="metadata"
+            crossorigin="anonymous"
+          >
+            <source src="vid/SUMMER PRENUP (MC).mp4" type="video/mp4" />
           </video>
         </div>
       </div>
@@ -1004,9 +1045,9 @@
         <h2 class="section-title">Wedding Details</h2>
         <div class="divider"><span>✦</span></div>
 
-        <div class="info-grid">
+        <div class="info-grid row g-4 g-lg-5">
           <!-- Gift Guide -->
-          <div class="info-card reveal">
+          <div class="info-card reveal col-12 col-md-6 col-lg-4">
             <div class="info-card-icon">🎁</div>
             <h3 class="info-card-title">Gift Guide</h3>
             <p class="info-card-text">
@@ -1020,13 +1061,10 @@
           </div>
 
           <!-- RSVP Reminder -->
-          <div class="info-card reveal">
+          <div class="info-card reveal col-12 col-md-6 col-lg-4">
             <div class="info-card-icon">💌</div>
             <h3 class="info-card-title">Kindly RSVP</h3>
             <p class="info-card-text">by <strong>April 15, 2026</strong></p>
-            <p class="info-card-text">
-              We have reserved <strong>_ seat(s)</strong> for you.
-            </p>
             <p class="info-card-highlight">STRICTLY NO PLUS ONE</p>
             <p class="info-card-note">
               We're sorry, but we can't accommodate as many people as we'd love
@@ -1037,7 +1075,7 @@
           </div>
 
           <!-- Attire Guide -->
-          <div class="info-card info-card-wide reveal">
+          <div class="info-card info-card-wide reveal col-12 col-md-6 col-lg-4">
             <div class="info-card-icon">👗</div>
             <h3 class="info-card-title">Attire Guide</h3>
             <p class="info-card-text">
@@ -1047,30 +1085,53 @@
             <div class="attire-group">
               <div class="attire-item">
                 <h4 class="attire-label">Guest</h4>
-                <p>Fuchsia and nude color</p>
+                <img
+                  src="pics/guest attire.png"
+                  alt="Guest attire"
+                  class="attire-pic"
+                />
               </div>
               <div class="attire-item">
                 <h4 class="attire-label">Part of the Entourage</h4>
-                <p>
-                  <strong>Ladies:</strong> Lilac / Lavender Gown or Long Dress
-                </p>
-                <p>
-                  <strong>Gentlemen:</strong> Traditional Barong with black
-                  pants
-                </p>
+                <img
+                  src="pics/entourage attire.png"
+                  alt="Entourage attire"
+                  class="attire-pic"
+                />
               </div>
             </div>
           </div>
 
           <!-- Reminders -->
-          <div class="info-card reveal">
+          <div class="info-card reveal col-12 col-md-6 col-lg-4">
             <div class="info-card-icon">📌</div>
             <h3 class="info-card-title">Reminders</h3>
-            <ul class="info-card-list">
-              <li>Enjoy and Have Fun</li>
-              <li>Stay Until the End</li>
-              <li>Be On Time</li>
-            </ul>
+            <div class="reminders-pics">
+              <div class="reminder-item">
+                <img
+                  src="pics/be on time pic.png"
+                  alt="Be On Time"
+                  class="reminder-pic"
+                />
+                <p class="reminder-label">Be On Time</p>
+              </div>
+              <div class="reminder-item">
+                <img
+                  src="pics/finish the event pic.png"
+                  alt="Finish the Event"
+                  class="reminder-pic"
+                />
+                <p class="reminder-label">Stay Until the End</p>
+              </div>
+              <div class="reminder-item">
+                <img
+                  src="pics/enjoy and have fun pic.png"
+                  alt="Enjoy and Have Fun"
+                  class="reminder-pic"
+                />
+                <p class="reminder-label">Enjoy and Have Fun</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -1104,6 +1165,12 @@
       <p id="lb-counter"></p>
     </div>
 
+    <!-- Bootstrap 5 JS Bundle -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWbSxccPQtF3EpF3fnJHog6LaEVF6d1uEXg1GuJQOShjNGltF"
+      crossorigin="anonymous"
+    ></script>
     <script src="script.js"></script>
   </body>
 </html>
