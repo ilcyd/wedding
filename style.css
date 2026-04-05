@@ -783,7 +783,7 @@ a {
 
 .couple-names {
   font-family: var(--font-script);
-  font-size: clamp(3.5rem, 7vw, 7rem);
+  font-size: clamp(2.5rem, 6vw, 5rem);
   color: var(--color-dark);
   font-weight: 400;
   line-height: 1;
@@ -844,7 +844,7 @@ a {
   border-radius: 200px 200px 30px 30px;
   background-image: url("pics/MCS01175.JPG");
   background-size: cover;
-  background-position: center 20%;
+  background-position: center;
   box-shadow:
     0 20px 80px rgba(107, 77, 154, 0.25),
     0 4px 20px rgba(183, 148, 214, 0.15);
@@ -1442,20 +1442,6 @@ a {
   pointer-events: none;
   z-index: 0;
 }
-#entourage .section-inner::before {
-  content: "";
-  position: absolute;
-  bottom: 18px;
-  left: 12px;
-  width: clamp(150px, 20vw, 250px);
-  aspect-ratio: 1.4 / 1;
-  transform: rotate(180deg);
-  opacity: 0.24;
-  filter: var(--flower-filter);
-  mix-blend-mode: multiply;
-  pointer-events: none;
-  z-index: 0;
-}
 #entourage .section-inner {
   position: relative;
   z-index: 1;
@@ -1492,21 +1478,7 @@ a {
   pointer-events: none;
   z-index: 0;
 }
-.ent-frame::after {
-  content: "";
-  position: absolute;
-  bottom: 12px;
-  left: 12px;
-  width: clamp(100px, 16vw, 180px);
-  aspect-ratio: 1.4 / 1;
-  background: url("pics/new flower.png") bottom left / contain no-repeat;
-  transform: rotate(180deg);
-  opacity: 0.46;
-  filter: var(--flower-filter) var(--flower-blend-shadow);
-  mix-blend-mode: normal;
-  pointer-events: none;
-  z-index: 0;
-}
+
 .ent-frame > * {
   position: relative;
   z-index: 1;
@@ -1767,21 +1739,7 @@ a {
   overflow: hidden;
   isolation: isolate;
 }
-.ent-mini::before {
-  content: "";
-  position: absolute;
-  bottom: 8px;
-  left: 8px;
-  width: 86px;
-  aspect-ratio: 1.4 / 1;
-  background: url("pics/new flower.png") bottom left / contain no-repeat;
-  transform: rotate(180deg);
-  opacity: 0.34;
-  filter: var(--flower-filter) var(--flower-blend-shadow);
-  mix-blend-mode: normal;
-  pointer-events: none;
-  z-index: 0;
-}
+
 .ent-mini > * {
   position: relative;
   z-index: 1;
@@ -1896,21 +1854,7 @@ a {
   overflow: hidden;
   isolation: isolate;
 }
-.ent-offerer-item::before {
-  content: "";
-  position: absolute;
-  bottom: 8px;
-  left: 8px;
-  width: 86px;
-  aspect-ratio: 1.4 / 1;
-  background: url("pics/new flower.png") bottom left / contain no-repeat;
-  transform: rotate(180deg);
-  opacity: 0.34;
-  filter: var(--flower-filter) var(--flower-blend-shadow);
-  mix-blend-mode: normal;
-  pointer-events: none;
-  z-index: 0;
-}
+
 .ent-offerer-item > * {
   position: relative;
   z-index: 1;
