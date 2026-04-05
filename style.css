@@ -1852,6 +1852,13 @@ a {
   font-size: 1.6rem;
   margin-bottom: 8px;
 }
+.ent-bearer-icon-img {
+  height: 40px;
+  width: 40px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 8px;
+}
 /* Multi-name bearer cards (flower girls, offerers) */
 .ent-bearer:has(.ent-name ~ .ent-name) {
   flex: 1 1 220px;
