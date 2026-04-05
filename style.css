@@ -3247,6 +3247,18 @@ textarea {
     padding-bottom: 6px;
   }
 
+  /* Fix parallax on mobile — background-attachment:fixed is broken on iOS/Android */
+  #hero,
+  #details,
+  #entourage,
+  #gallery,
+  #video,
+  #rsvp,
+  #info-cards {
+    background-attachment: scroll;
+    background-size: cover;
+  }
+
   /* Attire */
   .attire-box {
     padding: 18px 16px;
