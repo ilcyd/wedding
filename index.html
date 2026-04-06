@@ -48,6 +48,29 @@
       </svg>
     </button>
 
+    <!-- ========= VIDEO SPLASH ========= -->
+    <div id="video-splash" class="video-splash">
+      <video
+        id="splash-video"
+        class="splash-video"
+        muted
+        playsinline
+        webkit-playsinline="true"
+        preload="metadata"
+      >
+        <source src="vid/monogram.mp4" type="video/mp4" />
+        Your browser does not support video playback.
+      </video>
+      <button id="splash-play" class="splash-play-btn" aria-label="Play video">
+        <svg width="64" height="64" viewBox="0 0 24 24" fill="currentColor">
+          <polygon points="5 3 19 12 5 21 5 3"></polygon>
+        </svg>
+      </button>
+      <button id="splash-skip" class="splash-skip-btn" aria-label="Skip splash">
+        Skip
+      </button>
+    </div>
+
     <!-- ========= SCROLL INTRO ========= -->
     <div id="scroll-intro" aria-hidden="true" title="Click to skip">
       <div class="si-panel si-top">
