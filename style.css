@@ -2267,6 +2267,33 @@ a {
   line-height: 1.7;
 }
 
+.rsvp-deco-divider {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  color: rgba(216, 196, 246, 0.5);
+  margin: 20px 0;
+  letter-spacing: 0.2em;
+}
+
+.rsvp-deco-subtitle {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin: 20px 0;
+}
+
+.rsvp-deco-message {
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  color: rgba(216, 196, 246, 0.8);
+  line-height: 1.8;
+  max-width: 280px;
+  margin: 0 auto;
+}
+
 .rsvp-form-side {
   display: flex;
   align-items: center;
