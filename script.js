@@ -50,11 +50,13 @@
 }());
 
 // ─── Background Music ────────────────────────────────────────────────────────
-function unmuteMusicOnUserInteraction() {
+function initBackgroundMusic() {
   const bgm = document.getElementById('bgm');
   if (bgm) {
     bgm.volume = 0.3;
-    bgm.muted = false;
+    bgm.play().catch(function(error) {
+      console.log('Background music autoplay failed (expected on some browsers):', error);
+    });
   }
 }
 
@@ -76,14 +78,12 @@ function initScrollIntro() {
   document.body.style.overflow = 'hidden';
 
   function openScroll() {
-    // Unmute music on user interaction (scroll click)
-    unmuteMusicOnUserInteraction();
-    
     intro.classList.add('si-open');
     setTimeout(function () {
       intro.remove();
       document.body.style.overflow = '';
-      // Start monogram video after scroll intro opens
+      // Start background music and monogram video after scroll intro
+      initBackgroundMusic();
       startMonogramVideo();
     }, 1500);
   }
