@@ -61,6 +61,16 @@ function initBackgroundMusic() {
   }
 }
 
+// ─── Monogram Video ──────────────────────────────────────────────────────────
+function startMonogramVideo() {
+  const video = document.querySelector('.hero-monogram-video');
+  if (video) {
+    video.play().catch(function(error) {
+      console.log('Monogram video playback failed:', error);
+    });
+  }
+}
+
 // ─── Scroll Intro ────────────────────────────────────────────────────────────
 function initScrollIntro() {
   const intro = document.getElementById('scroll-intro');
@@ -73,6 +83,9 @@ function initScrollIntro() {
     setTimeout(function () {
       intro.remove();
       document.body.style.overflow = '';
+      // Start background music and monogram video after scroll intro
+      initBackgroundMusic();
+      startMonogramVideo();
     }, 1500);
   }
 
