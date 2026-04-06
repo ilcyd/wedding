@@ -2874,7 +2874,7 @@ textarea {
     max-width: 340px;
     max-height: 420px;
     margin: 0 auto;
-    margin-top: -20px;
+    margin-top: -28px;
   }
   .couple-names {
     font-size: clamp(3rem, 12vw, 5.5rem);
@@ -3063,7 +3063,7 @@ textarea {
     max-width: 340px;
     max-height: 420px;
     margin: 0 auto;
-    margin-top: -30px;
+    margin-top: -38px;
   }
 
   /* Countdown */
@@ -3216,7 +3216,7 @@ textarea {
   .hero-photo-frame {
     max-width: 220px;
     max-height: 290px;
-    margin-top: -40px;
+    margin-top: -45px;
   }
 
   /* Countdown 2x2 */
