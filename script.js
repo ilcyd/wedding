@@ -8,7 +8,11 @@
   var video     = document.getElementById('splash-video');
   var skipBtn   = document.getElementById('splash-skip');
   var playBtn   = document.getElementById('splash-play');
-  if (!splash || !video) { initScrollIntro(); return; }
+  if (!splash || !video) { 
+    initBackgroundMusic();
+    initScrollIntro(); 
+    return; 
+  }
 
   document.body.style.overflow = 'hidden';
 
@@ -46,10 +50,20 @@
   });
 }());
 
+// ─── Background Music ────────────────────────────────────────────────────────
+function initBackgroundMusic() {
+  const bgm = document.getElementById('bgm');
+  if (bgm) {
+    bgm.volume = 0.3;
+    bgm.play().catch(function(error) {
+      console.log('Background music autoplay failed (expected on some browsers):', error);
+    });
+  }
+}
+
 // ─── Scroll Intro ────────────────────────────────────────────────────────────
 function initScrollIntro() {
   const intro = document.getElementById('scroll-intro');
-  const bgMusic = document.getElementById('bgm');
   if (!intro) return;
 
   document.body.style.overflow = 'hidden';
@@ -59,12 +73,6 @@ function initScrollIntro() {
     setTimeout(function () {
       intro.remove();
       document.body.style.overflow = '';
-      if (bgMusic) {
-        bgMusic.volume = 0.3;
-        bgMusic.play().catch(function(error) {
-          console.log('Background music autoplay failed (expected on some browsers):', error);
-        });
-      }
     }, 1500);
   }
 
