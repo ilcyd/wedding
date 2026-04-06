@@ -26,10 +26,10 @@
   }
 
   video.addEventListener('ended', dismiss, { once: true });
-  skipBtn.addEventListener('click', dismiss, { once: true });
+  if (skipBtn) skipBtn.addEventListener('click', dismiss, { once: true });
 
   // User tap triggers play with sound (satisfies browser autoplay policy)
-  playBtn.addEventListener('click', function () {
+  if (playBtn) playBtn.addEventListener('click', function () {
     video.muted = false;
     var playPromise = video.play();
     // Handle iOS compatibility
