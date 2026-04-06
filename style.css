@@ -1363,6 +1363,24 @@ a {
   max-width: 100%;
   margin: 0 auto;
 }
+/* Sponsor grid: 4 cols on large, 2 cols on small with left-half listed first */
+.sponsor-grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+.sponsor-grid > * {
+  width: 25%; /* 4 cols on large */
+}
+@media (max-width: 991.98px) {
+  .sponsor-grid > * {
+    width: 50%; /* 2 cols on small */
+  }
+  /* Push right-half items (positions 3,4,7,8,…) to after left-half */
+  .sponsor-grid > *:nth-child(4n + 3),
+  .sponsor-grid > *:nth-child(4n + 4) {
+    order: 1;
+  }
+}
 @media (max-width: 575px) {
   .ent-table td,
   .ent-table th {
@@ -1380,6 +1398,8 @@ a {
   letter-spacing: 0.03em;
   word-wrap: break-word;
   overflow-wrap: break-word;
+  text-align: center;
+  padding: 4px 10px;
 }
 .ent-name-small {
   font-size: clamp(0.85rem, 1.5vw, 1rem);
