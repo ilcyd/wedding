@@ -851,6 +851,7 @@ a {
   width: 100%;
   height: 100%;
   object-fit: contain;
+  opacity: 0.5;
 }
 
 .btn-outline {
@@ -1777,6 +1778,13 @@ a {
   color: var(--color-primary);
   margin-bottom: 8px;
 }
+.ent-highlight-img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 12px;
+}
 .ent-highlight-role {
   font-family: var(--font-script);
   font-size: 1.55rem;
@@ -1875,6 +1883,13 @@ a {
 .ent-bearer-icon {
   font-size: 1.6rem;
   margin-bottom: 8px;
+}
+.ent-bearer-img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 12px;
 }
 .ent-bearer-icon-img {
   height: 40px;
@@ -2827,7 +2842,7 @@ textarea {
 
   .hero-photo-frame {
     max-height: 500px;
-    margin-top: -10px;
+    margin-top: -50px;
   }
 
   /* Fix parallax on tablet — background-attachment:fixed causes issues */
@@ -2874,7 +2889,7 @@ textarea {
     max-width: 340px;
     max-height: 420px;
     margin: 0 auto;
-    margin-top: -28px;
+    margin-top: -60px;
   }
   .couple-names {
     font-size: clamp(3rem, 12vw, 5.5rem);
@@ -3063,7 +3078,7 @@ textarea {
     max-width: 340px;
     max-height: 420px;
     margin: 0 auto;
-    margin-top: -38px;
+    margin-top: -70px;
   }
 
   /* Countdown */
@@ -3216,7 +3231,7 @@ textarea {
   .hero-photo-frame {
     max-width: 220px;
     max-height: 290px;
-    margin-top: -45px;
+    margin-top: -80px;
   }
 
   /* Countdown 2x2 */
