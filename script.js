@@ -9,7 +9,6 @@
   var skipBtn   = document.getElementById('splash-skip');
   var playBtn   = document.getElementById('splash-play');
   if (!splash || !video) { 
-    initBackgroundMusic();
     initScrollIntro(); 
     return; 
   }
