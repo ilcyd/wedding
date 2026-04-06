@@ -161,17 +161,17 @@ function initScrollIntro() {
   const lbCounter = document.getElementById('lb-counter');
   if (!lb) return;
 
-  const items = Array.from(document.querySelectorAll('.gallery-item[data-src]'));
+  const items = Array.from(document.querySelectorAll('.carousel-item[data-src] img'));
   let current = 0;
 
   function showImg(index) {
     current = (index + items.length) % items.length;
     lbImg.classList.add('lb-loading');
-    const src = items[current].dataset.src;
+    const src = items[current].parentElement.dataset.src;
     const tmp = new Image();
     tmp.onload = function () {
       lbImg.src = src;
-      lbImg.alt = items[current].getAttribute('aria-label') || '';
+      lbImg.alt = items[current].alt || '';
       lbImg.classList.remove('lb-loading');
     };
     tmp.src = src;
@@ -192,9 +192,6 @@ function initScrollIntro() {
 
   items.forEach(function (item, i) {
     item.addEventListener('click', function () { open(i); });
-    item.addEventListener('keydown', function (e) {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(i); }
-    });
   });
 
   lbClose.addEventListener('click', close);
@@ -322,48 +319,3 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     }
   });
 });
-
-// ─── Gallery Slideshow ──────────────────────────────────────────────────────
-(function() {
-  const gallery = document.querySelector('.gallery-grid');
-  if (!gallery) return;
-
-  const items = gallery.querySelectorAll('.gallery-item');
-  if (items.length === 0) return;
-
-  const itemWidth = 260; // 250px + 10px gap
-  let currentIndex = 0;
-
-  // Set initial height
-  const firstImg = items[0].querySelector('img');
-  if (firstImg) {
-    gallery.style.height = firstImg.offsetHeight + 'px';
-  }
-
-  function scrollToIndex(index) {
-    gallery.scrollTo({
-      left: index * itemWidth,
-      behavior: 'smooth'
-    });
-    // Adjust height after scroll
-    setTimeout(() => {
-      const img = items[index].querySelector('img');
-      if (img) {
-        gallery.style.height = img.offsetHeight + 'px';
-      }
-    }, 300); // After smooth scroll
-  }
-
-  function nextSlide() {
-    currentIndex = (currentIndex + 1) % items.length;
-    scrollToIndex(currentIndex);
-  }
-
-  // Auto-advance every 10 seconds
-  setInterval(nextSlide, 10000);
-
-  // Optional: Pause on hover
-  gallery.addEventListener('mouseenter', () => {
-    // Could pause, but for simplicity, keep running
-  });
-})();
