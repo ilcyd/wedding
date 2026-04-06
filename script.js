@@ -2,53 +2,6 @@
    WEDDING INVITATION — SCRIPT.JS
    ============================================= */
 
-// ─── Video Splash ────────────────────────────────────────────────────────────
-(function initVideoSplash() {
-  var splash    = document.getElementById('video-splash');
-  var video     = document.getElementById('splash-video');
-  var skipBtn   = document.getElementById('splash-skip');
-  var playBtn   = document.getElementById('splash-play');
-  if (!splash || !video) { 
-    initScrollIntro(); 
-    return; 
-  }
-
-  document.body.style.overflow = 'hidden';
-
-  function dismiss() {
-    splash.classList.add('vs-fade');
-    setTimeout(function () {
-      splash.remove();
-      var bgm = document.getElementById('bgm');
-      if (bgm) bgm.play();
-      initScrollIntro();
-    }, 820);
-  }
-
-  video.addEventListener('ended', dismiss, { once: true });
-  if (skipBtn) skipBtn.addEventListener('click', dismiss, { once: true });
-
-  // User tap triggers play with sound (satisfies browser autoplay policy)
-  if (playBtn) playBtn.addEventListener('click', function () {
-    video.muted = false;
-    var playPromise = video.play();
-    // Handle iOS compatibility
-    if (playPromise !== undefined) {
-      playPromise.catch(function(error) {
-        console.log('Video playback failed:', error);
-        dismiss();
-      });
-    }
-    playBtn.style.display = 'none';
-  }, { once: true });
-
-  // Handle video load errors gracefully
-  video.addEventListener('error', function() {
-    console.log('Video failed to load');
-    setTimeout(dismiss, 500);
-  });
-}());
-
 // ─── Background Music ────────────────────────────────────────────────────────
 function initBackgroundMusic() {
   const bgm = document.getElementById('bgm');
@@ -86,16 +39,6 @@ function initBackgroundMusic() {
   updateMuteButton();
 }());
 
-// ─── Monogram Video ──────────────────────────────────────────────────────────
-function startMonogramVideo() {
-  const video = document.querySelector('.hero-monogram-video');
-  if (video) {
-    video.play().catch(function(error) {
-      console.log('Monogram video playback failed:', error);
-    });
-  }
-}
-
 // ─── Scroll Intro ────────────────────────────────────────────────────────────
 function initScrollIntro() {
   const intro = document.getElementById('scroll-intro');
@@ -108,9 +51,8 @@ function initScrollIntro() {
     setTimeout(function () {
       intro.remove();
       document.body.style.overflow = '';
-      // Start background music and monogram video after scroll intro
+      // Start background music after scroll intro
       initBackgroundMusic();
-      startMonogramVideo();
     }, 1500);
   }
 

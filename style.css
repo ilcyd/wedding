@@ -1593,7 +1593,7 @@ a {
   position: absolute;
   top: 12px;
   right: 12px;
-  width: clamp(100px, 16vw, 180px);
+  width: clamp(120px, 20vw, 220px);
   aspect-ratio: 1.4 / 1;
   background: url("pics/new flower.png") top right / contain no-repeat;
   opacity: 0.46;
@@ -1880,7 +1880,7 @@ a {
   position: absolute;
   top: 10px;
   right: 10px;
-  width: 110px;
+  width: 135px;
   aspect-ratio: 1.4 / 1;
   background: url("pics/new flower.png") top right / contain no-repeat;
   opacity: 0.4;
@@ -2001,7 +2001,7 @@ a {
   position: absolute;
   top: 8px;
   right: 8px;
-  width: 86px;
+  width: 105px;
   aspect-ratio: 1.4 / 1;
   background: url("pics/new flower.png") top right / contain no-repeat;
   opacity: 0.34;
