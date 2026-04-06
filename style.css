@@ -1972,6 +1972,9 @@ a {
   gap: 2px 8px;
   text-align: center;
 }
+.ent-mini-names .ent-name {
+  font-size: 0.95rem;
+}
 
 /* -- Bearers row -- */
 .ent-bearers-row {
