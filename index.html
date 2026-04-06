@@ -42,8 +42,9 @@
     </div>
 
     <!-- Background Music -->
-    <audio id="bgm" loop preload="none">
-      <source src="vid/bgm.mp4" type="video/mp4">
+    <audio id="bgm" loop preload="metadata">
+      <source src="vid/bgm.mp4" type="audio/mp4" />
+      Your browser does not support background music playback.
     </audio>
 
     <!-- ========= SCROLL INTRO ========= -->
@@ -1146,17 +1147,6 @@
       </div>
       <p id="lb-counter"></p>
     </div>
-
-    <!-- Background Music -->
-    <video
-      id="bg-music"
-      src="vid/bgm.mp4"
-      loop
-      muted
-      playsinline
-      preload="metadata"
-      style="display: none"
-    ></video>
 
     <!-- Bootstrap 5 JS Bundle -->
     <script

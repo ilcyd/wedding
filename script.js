@@ -49,7 +49,7 @@
 // ─── Scroll Intro ────────────────────────────────────────────────────────────
 function initScrollIntro() {
   const intro = document.getElementById('scroll-intro');
-  const bgMusic = document.getElementById('bg-music');
+  const bgMusic = document.getElementById('bgm');
   if (!intro) return;
 
   document.body.style.overflow = 'hidden';
