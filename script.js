@@ -50,17 +50,11 @@
 }());
 
 // ─── Background Music ────────────────────────────────────────────────────────
-function initBackgroundMusic() {
+function unmuteMusicOnUserInteraction() {
   const bgm = document.getElementById('bgm');
   if (bgm) {
     bgm.volume = 0.3;
-    bgm.currentTime = 0;
-    const playPromise = bgm.play();
-    if (playPromise !== undefined) {
-      playPromise.catch(function(error) {
-        console.log('Background music autoplay failed (expected on some browsers):', error);
-      });
-    }
+    bgm.muted = false;
   }
 }
 
@@ -80,11 +74,11 @@ function initScrollIntro() {
   if (!intro) return;
 
   document.body.style.overflow = 'hidden';
-  
-  // Start background music while scroll intro is visible
-  initBackgroundMusic();
 
   function openScroll() {
+    // Unmute music on user interaction (scroll click)
+    unmuteMusicOnUserInteraction();
+    
     intro.classList.add('si-open');
     setTimeout(function () {
       intro.remove();
