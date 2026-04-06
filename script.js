@@ -40,7 +40,7 @@ function initBackgroundMusic() {
 }());
 
 // ─── Scroll Intro ────────────────────────────────────────────────────────────
-function initScrollIntro() {
+(function initScrollIntro() {
   const intro = document.getElementById('scroll-intro');
   if (!intro) return;
 
@@ -59,7 +59,7 @@ function initScrollIntro() {
   intro.addEventListener('click', function () {
     openScroll();
   }, { once: true });
-}
+}());
 
 
 // ─── Countdown Timer ───────────────────────────────────────────────────────
