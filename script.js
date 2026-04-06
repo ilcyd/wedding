@@ -16,6 +16,8 @@
     splash.classList.add('vs-fade');
     setTimeout(function () {
       splash.remove();
+      var bgm = document.getElementById('bgm');
+      if (bgm) bgm.play();
       initScrollIntro();
     }, 820);
   }
@@ -47,6 +49,7 @@
 // ─── Scroll Intro ────────────────────────────────────────────────────────────
 function initScrollIntro() {
   const intro = document.getElementById('scroll-intro');
+  const bgMusic = document.getElementById('bg-music');
   if (!intro) return;
 
   document.body.style.overflow = 'hidden';
@@ -56,6 +59,12 @@ function initScrollIntro() {
     setTimeout(function () {
       intro.remove();
       document.body.style.overflow = '';
+      if (bgMusic) {
+        bgMusic.volume = 0.3;
+        bgMusic.play().catch(function(error) {
+          console.log('Background music autoplay failed (expected on some browsers):', error);
+        });
+      }
     }, 1500);
   }
 
@@ -313,3 +322,48 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     }
   });
 });
+
+// ─── Gallery Slideshow ──────────────────────────────────────────────────────
+(function() {
+  const gallery = document.querySelector('.gallery-grid');
+  if (!gallery) return;
+
+  const items = gallery.querySelectorAll('.gallery-item');
+  if (items.length === 0) return;
+
+  const itemWidth = 260; // 250px + 10px gap
+  let currentIndex = 0;
+
+  // Set initial height
+  const firstImg = items[0].querySelector('img');
+  if (firstImg) {
+    gallery.style.height = firstImg.offsetHeight + 'px';
+  }
+
+  function scrollToIndex(index) {
+    gallery.scrollTo({
+      left: index * itemWidth,
+      behavior: 'smooth'
+    });
+    // Adjust height after scroll
+    setTimeout(() => {
+      const img = items[index].querySelector('img');
+      if (img) {
+        gallery.style.height = img.offsetHeight + 'px';
+      }
+    }, 300); // After smooth scroll
+  }
+
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % items.length;
+    scrollToIndex(currentIndex);
+  }
+
+  // Auto-advance every 10 seconds
+  setInterval(nextSlide, 10000);
+
+  // Optional: Pause on hover
+  gallery.addEventListener('mouseenter', () => {
+    // Could pause, but for simplicity, keep running
+  });
+})();

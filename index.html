@@ -41,6 +41,11 @@
       <button id="splash-skip">Skip &rsaquo;</button>
     </div>
 
+    <!-- Background Music -->
+    <audio id="bgm" loop preload="none">
+      <source src="vid/bgm.mp4" type="video/mp4">
+    </audio>
+
     <!-- ========= SCROLL INTRO ========= -->
     <div id="scroll-intro" aria-hidden="true" title="Click to skip">
       <div class="si-panel si-top">
@@ -366,7 +371,7 @@
           </div>
           <div class="ent-highlight-card">
             <div class="ent-highlight-icon">&#9829;</div>
-            <h3 class="ent-highlight-role">Maid of Honor</h3>
+            <h3 class="ent-highlight-role">Maids of Honor</h3>
             <p class="ent-name">Gerly D. Pescante</p>
             <p class="ent-name">Liezelmae E. Dela Cruz</p>
           </div>
@@ -385,7 +390,7 @@
             </div>
             <div class="ent-col-divider"><span>&#10048;</span></div>
             <div class="ent-col">
-              <div class="ent-ribbon-sm"><span>Bridesmaids</span></div>
+              <div class="ent-ribbon-sm"><span>Bridesmaid</span></div>
               <p class="ent-name">Jean Marie D. Loreno</p>
               <p class="ent-name">Kyla Abryl P. Nicolas</p>
               <p class="ent-name">Kate Laura P. Nicolas</p>
@@ -453,51 +458,21 @@
         <h2 class="section-title">Our Gallery</h2>
         <div class="divider"><span>✦</span></div>
         <div class="gallery-grid">
-          <div
-            class="gallery-item"
-            data-src="pics/MCS00039.JPG"
-            role="button"
-            tabindex="0"
-            aria-label="View photo 1"
-          >
-            <img src="pics/MCS00039.JPG" alt="" loading="lazy" />
-          </div>
-          <div
-            class="gallery-item"
-            data-src="pics/MCS00050.JPG"
-            role="button"
-            tabindex="0"
-            aria-label="View photo 2"
-          >
-            <img src="pics/MCS00050.JPG" alt="" loading="lazy" />
-          </div>
-          <div
-            class="gallery-item"
-            data-src="pics/MCS00087.JPG"
-            role="button"
-            tabindex="0"
-            aria-label="View photo 3"
-          >
-            <img src="pics/MCS00087.JPG" alt="" loading="lazy" />
-          </div>
-          <div
-            class="gallery-item"
-            data-src="pics/MCS00100.JPG"
-            role="button"
-            tabindex="0"
-            aria-label="View photo 4"
-          >
-            <img src="pics/MCS00100.JPG" alt="" loading="lazy" />
-          </div>
-          <div
-            class="gallery-item"
-            data-src="pics/MCS00120.JPG"
-            role="button"
-            tabindex="0"
-            aria-label="View photo 5"
-          >
-            <img src="pics/MCS00120.JPG" alt="" loading="lazy" />
-          </div>
+            <div class="carousel-item active">
+              <img src="pics/MCS00039.JPG" class="d-block w-100" alt="Photo 1" />
+            </div>
+            <div class="carousel-item">
+              <img src="pics/MCS00050.JPG" class="d-block w-100" alt="Photo 2" />
+            </div>
+            <div class="carousel-item">
+              <img src="pics/MCS00087.JPG" class="d-block w-100" alt="Photo 3" />
+            </div>
+            <div class="carousel-item">
+              <img src="pics/MCS00100.JPG" class="d-block w-100" alt="Photo 4" />
+            </div>
+            <div class="carousel-item">
+              <img src="pics/MCS00120.JPG" class="d-block w-100" alt="Photo 5" />
+            </div>
           <div
             class="gallery-item"
             data-src="pics/MCS00163.JPG"
@@ -1088,6 +1063,7 @@
                   alt="Guest attire"
                   class="attire-pic"
                 />
+                <p>Ladies: Blush pink<br />Gentlemen: Nude</p>
               </div>
               <div class="attire-item">
                 <h4 class="attire-label">Part of the Entourage</h4>
@@ -1096,6 +1072,10 @@
                   alt="Entourage attire"
                   class="attire-pic"
                 />
+                <p>
+                  Ladies: Lavender/ lilac<br />Gentlemen: Nude Barong paired w/
+                  Black Pants
+                </p>
               </div>
             </div>
           </div>
@@ -1162,6 +1142,17 @@
       </div>
       <p id="lb-counter"></p>
     </div>
+
+    <!-- Background Music -->
+    <video
+      id="bg-music"
+      src="vid/bgm.mp4"
+      loop
+      muted
+      playsinline
+      preload="metadata"
+      style="display: none"
+    ></video>
 
     <!-- Bootstrap 5 JS Bundle -->
     <script
