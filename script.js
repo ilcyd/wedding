@@ -80,14 +80,16 @@ function initScrollIntro() {
   if (!intro) return;
 
   document.body.style.overflow = 'hidden';
+  
+  // Start background music while scroll intro is visible
+  initBackgroundMusic();
 
   function openScroll() {
     intro.classList.add('si-open');
     setTimeout(function () {
       intro.remove();
       document.body.style.overflow = '';
-      // Start background music and monogram video after scroll intro
-      initBackgroundMusic();
+      // Start monogram video after scroll intro opens
       startMonogramVideo();
     }, 1500);
   }
