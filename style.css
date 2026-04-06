@@ -2336,7 +2336,12 @@ a {
 .rsvp-deco-divider {
   width: 200px;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(216, 196, 246, 0.5), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(216, 196, 246, 0.5),
+    transparent
+  );
   margin: 20px auto;
 }
 
@@ -2937,7 +2942,7 @@ textarea {
     max-width: 340px;
     max-height: 420px;
     margin: 0 auto;
-    margin-top: -60px;
+    margin-top: -80px;
   }
   .couple-names {
     font-size: clamp(3rem, 12vw, 5.5rem);
@@ -3133,7 +3138,7 @@ textarea {
     max-width: 340px;
     max-height: 420px;
     margin: 0 auto;
-    margin-top: -70px;
+    margin-top: -90px;
   }
 
   /* Countdown */
@@ -3293,7 +3298,7 @@ textarea {
   .hero-photo-frame {
     max-width: 220px;
     max-height: 290px;
-    margin-top: -80px;
+    margin-top: -100px;
   }
 
   /* Countdown 2x2 */
