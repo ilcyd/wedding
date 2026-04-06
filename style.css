@@ -61,6 +61,47 @@ a {
   text-decoration: none;
 }
 
+/* ---------- Background Music Mute Button ---------- */
+.bgm-mute-btn {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  z-index: 500;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(126, 106, 173, 0.85);
+  border: 1px solid rgba(183, 148, 214, 0.3);
+  color: var(--color-white);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 15px rgba(126, 106, 173, 0.3);
+}
+.bgm-mute-btn:hover {
+  background: rgba(126, 106, 173, 0.95);
+  box-shadow: 0 6px 25px rgba(126, 106, 173, 0.4);
+  transform: scale(1.08);
+}
+.bgm-mute-btn:active {
+  transform: scale(0.96);
+}
+.bgm-mute-btn svg {
+  width: 24px;
+  height: 24px;
+  stroke: currentColor;
+}
+.bgm-mute-btn.muted {
+  background: rgba(148, 138, 170, 0.85);
+}
+.bgm-mute-btn.muted svg {
+  opacity: 0.6;
+}
+
 /* ---- Flower Corner Decorations (image-based) ---- */
 :root {
   --flower-size: clamp(140px, 22vw, 280px);
@@ -3068,6 +3109,13 @@ textarea {
     --section-padding: 60px 18px;
   }
 
+  .bgm-mute-btn {
+    width: 45px;
+    height: 45px;
+    bottom: 20px;
+    left: 20px;
+  }
+
   #main-nav .nav-link {
     padding: 10px 0 !important;
     font-size: 0.58rem;
@@ -3225,6 +3273,13 @@ textarea {
 
 /* ---------- Mobile-small (≤ 420px) ---------- */
 @media (max-width: 420px) {
+  .bgm-mute-btn {
+    width: 44px;
+    height: 44px;
+    bottom: 18px;
+    left: 18px;
+  }
+
   .hero-split {
     padding: 60px 14px 40px;
   }

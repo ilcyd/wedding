@@ -60,6 +60,32 @@ function initBackgroundMusic() {
   }
 }
 
+// ─── BGM Mute Button ─────────────────────────────────────────────────────────
+(function initBGMMuteButton() {
+  const bgm = document.getElementById('bgm');
+  const muteBtn = document.getElementById('bgm-mute-btn');
+  
+  if (!bgm || !muteBtn) return;
+
+  function updateMuteButton() {
+    if (bgm.muted) {
+      muteBtn.classList.add('muted');
+      muteBtn.setAttribute('title', 'Unmute Music');
+    } else {
+      muteBtn.classList.remove('muted');
+      muteBtn.setAttribute('title', 'Mute Music');
+    }
+  }
+
+  muteBtn.addEventListener('click', function () {
+    bgm.muted = !bgm.muted;
+    updateMuteButton();
+  });
+
+  // Initialize button state
+  updateMuteButton();
+}());
+
 // ─── Monogram Video ──────────────────────────────────────────────────────────
 function startMonogramVideo() {
   const video = document.querySelector('.hero-monogram-video');
