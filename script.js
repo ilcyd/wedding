@@ -54,9 +54,13 @@ function initBackgroundMusic() {
   const bgm = document.getElementById('bgm');
   if (bgm) {
     bgm.volume = 0.3;
-    bgm.play().catch(function(error) {
-      console.log('Background music autoplay failed (expected on some browsers):', error);
-    });
+    bgm.currentTime = 0;
+    const playPromise = bgm.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(function(error) {
+        console.log('Background music autoplay failed (expected on some browsers):', error);
+      });
+    }
   }
 }
 
