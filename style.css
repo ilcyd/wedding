@@ -621,7 +621,7 @@ a {
   left: 0;
   right: 0;
   z-index: 900;
-  background: rgba(245, 240, 252, 0.82);
+  background: rgba(245, 240, 252, 0.82) !important;
   backdrop-filter: blur(18px) saturate(1.4);
   -webkit-backdrop-filter: blur(18px) saturate(1.4);
   border-bottom: 1px solid rgba(183, 148, 214, 0.15);
@@ -680,6 +680,10 @@ a {
 
 #main-nav .nav-link:hover::after {
   width: 100%;
+}
+
+#main-nav .navbar-collapse {
+  background: rgba(245, 240, 252, 0.82);
 }
 
 /* ---- Hero Monogram Watermark ---- */
