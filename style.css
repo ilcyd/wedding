@@ -2829,6 +2829,18 @@ textarea {
     max-height: 500px;
     margin-top: -10px;
   }
+
+  /* Fix parallax on tablet — background-attachment:fixed causes issues */
+  #hero,
+  #details,
+  #entourage,
+  #gallery,
+  #video,
+  #rsvp,
+  #info-cards {
+    background-attachment: scroll !important;
+    background-size: cover;
+  }
 }
 
 /* ---------- Tablet (≤ 768px) ---------- */
@@ -3023,7 +3035,7 @@ textarea {
   #video,
   #rsvp,
   #info-cards {
-    background-attachment: scroll;
+    background-attachment: scroll !important;
     background-size: cover;
   }
 }
@@ -3311,7 +3323,7 @@ textarea {
   #video,
   #rsvp,
   #info-cards {
-    background-attachment: scroll;
+    background-attachment: scroll !important;
     background-size: cover;
   }
 
