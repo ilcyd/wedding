@@ -355,6 +355,30 @@ a {
     inset 0 1px 0 rgba(255, 255, 255, 0.6);
   animation: siCardIn 0.8s 0.2s cubic-bezier(0.4, 0, 0.2, 1) both;
   max-width: min(440px, 90vw);
+  overflow: hidden;
+}
+.si-inner::before {
+  content: "";
+  position: absolute;
+  top: -65px;
+  right: -60px;
+  width: 200px;
+  height: 200px;
+  background: url("pics/new flower.png") no-repeat center / contain;
+  pointer-events: none;
+  z-index: 0;
+}
+.si-inner::after {
+  content: "";
+  position: absolute;
+  bottom: -65px;
+  left: -60px;
+  width: 200px;
+  height: 200px;
+  background: url("pics/new flower.png") no-repeat center / contain;
+  pointer-events: none;
+  z-index: 0;
+  transform: rotate(180deg);
 }
 @keyframes siCardIn {
   from {
@@ -1200,6 +1224,16 @@ a {
   backdrop-filter: blur(6px);
   overflow: hidden;
 }
+.ent-frame::after {
+  content: "";
+  position: absolute;
+  top: -105px;
+  right: -100px;
+  width: 300px;
+  height: 300px;
+  background: url("pics/new flower.png") no-repeat center / contain;
+  pointer-events: none;
+}
 .ent-frame:last-of-type {
   margin-bottom: 0;
 }
@@ -1442,6 +1476,17 @@ a {
   position: relative;
   overflow: hidden;
   height: 100%;
+}
+.ent-highlight-card::before {
+  content: "";
+  position: absolute;
+  top: -105px;
+  right: -100px;
+  width: 300px;
+  height: 300px;
+  background: url("pics/new flower.png") no-repeat center / contain;
+  pointer-events: none;
+  z-index: 0;
 }
 .ent-highlight-card::after {
   content: "";
