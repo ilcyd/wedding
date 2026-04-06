@@ -1378,7 +1378,7 @@ a {
   overflow-wrap: break-word;
 }
 .ent-name-small {
-  font-size: 0.82rem;
+  font-size: clamp(0.85rem, 1.5vw, 1rem);
 }
 
 /* Mini cards (secondary sponsors) */
@@ -2095,4 +2095,3 @@ textarea.form-control {
     opacity: 0;
   }
 }
-
