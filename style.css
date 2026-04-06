@@ -2268,11 +2268,10 @@ a {
 }
 
 .rsvp-deco-divider {
-  font-family: var(--font-serif);
-  font-size: 1.2rem;
-  color: rgba(216, 196, 246, 0.5);
-  margin: 20px 0;
-  letter-spacing: 0.2em;
+  width: 200px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(216, 196, 246, 0.5), transparent);
+  margin: 20px auto;
 }
 
 .rsvp-deco-subtitle {
