@@ -1488,6 +1488,15 @@ a {
   background: rgba(255, 255, 255, 0.8);
   padding: 0 20px;
   position: relative;
+}
+
+/* Make NUPTIALS more readable */
+.ent-principal .ent-ribbon:nth-of-type(2) span {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
   z-index: 1;
 }
 .ent-ribbon::before {
@@ -1636,7 +1645,7 @@ a {
 #entourage .ent-four-col .ent-col:nth-child(4) .ent-name:nth-of-type(2),
 #entourage .ent-four-col .ent-col:nth-child(4) .ent-name:nth-of-type(3),
 #entourage .ent-two-col .ent-col:nth-child(3) .ent-name:nth-of-type(5) {
-  font-size: 0.92rem;
+  font-size: 0.8rem;
 }
 
 /* Responsive adjustments */

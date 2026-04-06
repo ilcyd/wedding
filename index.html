@@ -19,31 +19,9 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <!-- ========= VIDEO SPLASH ========= -->
-    <div id="video-splash">
-      <video
-        id="splash-video"
-        playsinline
-        webkit-playsinline="true"
-        preload="metadata"
-        muted
-      >
-        <source
-          src="https://github.com/ilcyd/wedding/releases/download/v1.0/SUMMER.PRENUP.MC.mp4"
-          type="video/mp4"
-        />
-      </video>
-      <div class="splash-monogram" aria-hidden="true">
-        <img src="pics/IS combine initials.png" alt="" />
-        <p class="splash-names">Irneil &amp; Summer</p>
-      </div>
-      <button id="splash-play" title="Tap to play">&#9654;</button>
-      <button id="splash-skip">Skip &rsaquo;</button>
-    </div>
-
     <!-- Background Music -->
     <audio id="bgm" loop preload="metadata">
-      <source src="music/0406.AAC" type="audio/aac" />
+      <source src="music/bgm.AAC" type="audio/aac" />
       Your browser does not support background music playback.
     </audio>
 
@@ -261,6 +239,7 @@
               <p class="ent-name">Mr. Richard R. Eje</p>
               <p class="ent-name">Mr. Richard C. Piañar</p>
               <p class="ent-name">Mr. Expedito C. Flores</p>
+              <p class="ent-name">Mr. Felixberto I. Chatto</p>
             </div>
             <div class="ent-col">
               <p class="ent-name ent-name-mobile-nowrap">
@@ -271,6 +250,7 @@
               <p class="ent-name">Mrs. Almera T. Eje</p>
               <p class="ent-name">Mrs. Cicile A. Piañar</p>
               <p class="ent-name">Mrs. Nilda P. Flores</p>
+              <p class="ent-name">Mrs. Soledad G. Chatto</p>
             </div>
             <div class="ent-col">
               <p class="ent-name">Mr. Leonel M. Nicolas</p>
@@ -279,6 +259,7 @@
               <p class="ent-name">Mr. Jerry R. Mejico</p>
               <p class="ent-name">Mr. Allan J. Ritcha</p>
               <p class="ent-name">Mr. Arcelio E. Lauronal</p>
+              <p class="ent-name">Mr. Dante M. Magallanes</p>
             </div>
             <div class="ent-col">
               <p class="ent-name">Mrs. Pilita P. Nicolas</p>
@@ -287,6 +268,7 @@
               <p class="ent-name">Mrs. Susan R. Mejico</p>
               <p class="ent-name">Mrs. Tessie A. Ritcha</p>
               <p class="ent-name">Mrs. Myra M. Lauronal</p>
+              <p class="ent-name">Mrs. Merlita C. Magallanes</p>
             </div>
           </div>
         </div>
@@ -1038,20 +1020,6 @@
             </p>
           </div>
 
-          <!-- RSVP Reminder -->
-          <div class="info-card reveal col-12 col-md-6 col-lg-6" id="rsvp">
-            <div class="info-card-icon">💌</div>
-            <h3 class="info-card-title">Kindly RSVP</h3>
-            <p class="info-card-text">by <strong>April 15, 2026</strong></p>
-            <p class="info-card-highlight">STRICTLY NO PLUS ONE</p>
-            <p class="info-card-note">
-              We're sorry, but we can't accommodate as many people as we'd love
-              to. Please confirm your attendance and provide your names, as our
-              coordinator will check the guest list on the day of the wedding.
-              Thank you!
-            </p>
-          </div>
-
           <!-- Attire Guide -->
           <div class="info-card info-card-wide reveal col-12 col-md-6 col-lg-6">
             <div class="info-card-icon">👗</div>
@@ -1114,6 +1082,68 @@
                 />
                 <p class="reminder-label">Enjoy and Have Fun</p>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========= RSVP ========= -->
+    <section id="rsvp">
+      <div class="rsvp-split">
+        <div class="rsvp-decorative">
+          <div class="rsvp-deco-inner">
+            <p class="rsvp-deco-tag">RSVP</p>
+            <h2 class="rsvp-deco-title">Please Fill Up</h2>
+            <p class="rsvp-deco-date">
+              Kindly confirm your attendance by <strong>April 15, 2026</strong>.
+            </p>
+          </div>
+        </div>
+        <div class="rsvp-form-side">
+          <div class="section-inner">
+            <p class="section-label">RSVP</p>
+            <h2 class="section-title">Fill up the form</h2>
+            <div class="divider"><span>✦</span></div>
+            <form id="rsvp-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="name">Full Name</label>
+                  <input type="text" id="name" name="name" placeholder="Your full name" />
+                </div>
+                <div class="form-group">
+                  <label for="email">Email Address</label>
+                  <input type="email" id="email" name="email" placeholder="you@example.com" />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Attendance</label>
+                  <div class="radio-group">
+                    <label class="radio-label">
+                      <input type="radio" name="attending" value="yes" checked /> Yes
+                    </label>
+                    <label class="radio-label">
+                      <input type="radio" name="attending" value="no" /> No
+                    </label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="guest-count">Guest Count</label>
+                  <select id="guest-count" name="guest-count">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group full-width">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="A short note for the couple"></textarea>
+              </div>
+              <button class="btn-primary" type="submit">Submit RSVP</button>
+            </form>
+            <div id="rsvp-success" class="rsvp-success hidden">
+              Thank you! Your RSVP has been recorded. We look forward to celebrating with you.
             </div>
           </div>
         </div>
