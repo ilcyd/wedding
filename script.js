@@ -256,6 +256,53 @@ function initBackgroundMusic() {
   }
 }());
 
+// ─── Video ↔ BGM sync ────────────────────────────────────────────────────────
+// Shared flag so the keep-alive doesn't restart BGM while video is playing
+var bgmPausedForVideo = false;
+
+(function initVideoAudioSync() {
+  var bgm   = document.getElementById('bgm');
+  var video = document.querySelector('#video video');
+  if (!bgm || !video) return;
+
+  video.addEventListener('play', function () {
+    if (!bgm.paused) {
+      bgmPausedForVideo = true;
+      bgm.pause();
+    }
+  });
+
+  function resumeBGM() {
+    if (bgmPausedForVideo) {
+      bgmPausedForVideo = false;
+      bgm.play().catch(function () {});
+    }
+  }
+
+  video.addEventListener('pause', resumeBGM);
+  video.addEventListener('ended', resumeBGM);
+}());
+
+// ─── BGM keep-alive (mobile browsers can pause audio on scroll / tab-switch) ─
+(function initBGMKeepAlive() {
+  var bgm = document.getElementById('bgm');
+  if (!bgm) return;
+
+  function tryResume() {
+    if (!bgm.muted && bgm.paused && !bgmPausedForVideo) {
+      bgm.play().catch(function () {});
+    }
+  }
+
+  // Resume when tab becomes visible again
+  document.addEventListener('visibilitychange', function () {
+    if (!document.hidden) tryResume();
+  });
+
+  // iOS Safari can drop audio after scroll momentum ends; nudge it back
+  document.addEventListener('touchend', tryResume, { passive: true });
+}());
+
 // ─── Smooth-scroll for anchor links ─────────────────────────────────────────
 document.querySelectorAll('a[href^="#"]').forEach(function (link) {
   link.addEventListener('click', function (e) {
