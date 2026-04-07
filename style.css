@@ -1405,12 +1405,7 @@ a {
 }
 @media (max-width: 991.98px) {
   .sponsor-grid > * {
-    width: 50%; /* 2 cols on small */
-  }
-  /* Push right-half items (positions 3,4,7,8,…) to after left-half */
-  .sponsor-grid > *:nth-child(4n + 3),
-  .sponsor-grid > *:nth-child(4n + 4) {
-    order: 1;
+    width: 50%; /* 2 cols on small: 1st 2nd | 3rd 4th | next line… */
   }
 }
 @media (max-width: 575px) {
