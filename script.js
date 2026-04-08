@@ -227,10 +227,34 @@ function initBackgroundMusic() {
       return;
     }
 
-    // In production, POST this data to a backend / email service.
-    form.style.display = 'none';
-    success.classList.remove('hidden');
-    success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    const attending  = document.querySelector('input[name="attending"]:checked')?.value || 'yes';
+    const guestCount = document.getElementById('guest-count').value;
+    const msg        = document.getElementById('message').value.trim();
+
+    const submitBtn = form.querySelector('[type="submit"]');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+
+    const body = new URLSearchParams({ name, email, attending, 'guest-count': guestCount, message: msg });
+
+    fetch('send_mail.php', { method: 'POST', body })
+      .then(function (res) { return res.json(); })
+      .then(function (data) {
+        if (data.success) {
+          form.style.display = 'none';
+          success.classList.remove('hidden');
+          success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } else {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Submit RSVP';
+          showError(document.getElementById('name'), data.message || 'Failed to send. Please try again.');
+        }
+      })
+      .catch(function () {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Submit RSVP';
+        showError(document.getElementById('name'), 'Network error. Please try again.');
+      });
   });
 
   function isValidEmail(email) {
@@ -256,31 +280,43 @@ function initBackgroundMusic() {
   }
 }());
 
-// ─── Video ↔ BGM sync ────────────────────────────────────────────────────────
+// ─── Video ↔ BGM sync (YouTube IFrame API) ──────────────────────────────────
 // Shared flag so the keep-alive doesn't restart BGM while video is playing
 var bgmPausedForVideo = false;
 
-(function initVideoAudioSync() {
-  var bgm   = document.getElementById('bgm');
-  var video = document.querySelector('#video video');
-  if (!bgm || !video) return;
+// Called automatically by the YT IFrame API script once loaded
+window.onYouTubeIframeAPIReady = function () {
+  var bgm = document.getElementById('bgm');
+  if (!document.getElementById('yt-player')) return;
 
-  video.addEventListener('play', function () {
-    if (!bgm.paused) {
-      bgmPausedForVideo = true;
-      bgm.pause();
+  new YT.Player('yt-player', {
+    events: {
+      onStateChange: function (e) {
+        if (e.data === YT.PlayerState.PLAYING) {
+          if (bgm && !bgm.paused) {
+            bgmPausedForVideo = true;
+            bgm.pause();
+          }
+        } else if (
+          e.data === YT.PlayerState.PAUSED ||
+          e.data === YT.PlayerState.ENDED
+        ) {
+          if (bgmPausedForVideo) {
+            bgmPausedForVideo = false;
+            if (bgm) bgm.play().catch(function () {});
+          }
+        }
+      }
     }
   });
+};
 
-  function resumeBGM() {
-    if (bgmPausedForVideo) {
-      bgmPausedForVideo = false;
-      bgm.play().catch(function () {});
-    }
-  }
-
-  video.addEventListener('pause', resumeBGM);
-  video.addEventListener('ended', resumeBGM);
+// Load the YouTube IFrame API
+(function loadYTApi() {
+  var tag = document.createElement('script');
+  tag.src = 'https://www.youtube.com/iframe_api';
+  var firstScript = document.getElementsByTagName('script')[0];
+  firstScript.parentNode.insertBefore(tag, firstScript);
 }());
 
 // ─── BGM keep-alive (mobile browsers can pause audio on scroll / tab-switch) ─
