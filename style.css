@@ -1,4 +1,4 @@
-﻿/* =============================================
+/* =============================================
    WEDDING INVITATION â€” STYLE.CSS  v2 (Bootstrap 5 Edition)
    ============================================= */
 
@@ -1653,7 +1653,8 @@ a {
   aspect-ratio: 16 / 9;
   background: var(--color-dark);
 }
-.video-wrapper video {
+.video-wrapper video,
+.video-wrapper iframe {
   position: absolute;
   inset: 0;
   width: 100%;
