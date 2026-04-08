@@ -235,9 +235,21 @@ function initBackgroundMusic() {
     submitBtn.disabled = true;
     submitBtn.textContent = 'Sending…';
 
-    const body = new URLSearchParams({ name, email, attending, 'guest-count': guestCount, message: msg });
+    const payload = {
+      access_key: 'b6388fad-b5f0-4546-9a51-816270583f0f',
+      subject: 'New RSVP from ' + name,
+      from_name: name,
+      email: email,
+      attending: attending === 'yes' ? 'Yes, will attend' : 'Regretfully declining',
+      guest_count: guestCount + (guestCount === '1' ? ' Person' : ' Persons'),
+      message: msg || 'No message provided.',
+    };
 
-    fetch('https://weddingiands.infinityfreeapp.com/send_mail.php', { method: 'POST', body })
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify(payload),
+    })
       .then(function (res) { return res.json(); })
       .then(function (data) {
         if (data.success) {
