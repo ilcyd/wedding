@@ -236,7 +236,7 @@ function initBackgroundMusic() {
     submitBtn.textContent = 'Sending…';
 
     const payload = {
-      access_key: 'b6388fad-b5f0-4546-9a51-816270583f0f',
+      access_key: '888225c78-2309-4114-9f9c-b8e147ac9271',
       subject: 'New RSVP from ' + name,
       from_name: name,
       email: email,
