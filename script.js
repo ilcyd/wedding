@@ -237,7 +237,7 @@ function initBackgroundMusic() {
 
     const body = new URLSearchParams({ name, email, attending, 'guest-count': guestCount, message: msg });
 
-    fetch('send_mail.php', { method: 'POST', body })
+    fetch('https://weddingiands.infinityfreeapp.com/send_mail.php', { method: 'POST', body })
       .then(function (res) { return res.json(); })
       .then(function (data) {
         if (data.success) {
